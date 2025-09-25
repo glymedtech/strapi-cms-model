@@ -11,6 +11,11 @@
   },
   "pluginOptions": {},
   "attributes": {
+    "Banners": {
+      "type": "component",
+      "component": "shared.banner",
+      "repeatable": true
+    },
     "Role": {
       "type": "enumeration",
       "required": true,
@@ -154,6 +159,11 @@
       "type": "component",
       "component": "shared.text-with-color",
       "repeatable": false
+    },
+    "WhyChooseGlyMedPlus": {
+      "type": "component",
+      "component": "shared.why-choose-gly-med-plus",
+      "repeatable": true
     },
     "TestimonialTitle": {
       "type": "component",

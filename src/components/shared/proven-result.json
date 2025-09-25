@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_shared_proven_results",
+  "info": {
+    "displayName": "ProvenResult"
+  },
+  "options": {},
+  "attributes": {
+    "ResultImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "Before": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false
+    },
+    "After": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

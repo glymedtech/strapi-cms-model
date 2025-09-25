@@ -1,0 +1,171 @@
+{
+  "kind": "collectionType",
+  "collectionName": "home_pages",
+  "info": {
+    "singularName": "home-page",
+    "pluralName": "home-pages",
+    "displayName": "Home Page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Role": {
+      "type": "enumeration",
+      "required": true,
+      "default": "Pro",
+      "enum": [
+        "Pro",
+        "Retail",
+        "School",
+        "Web"
+      ]
+    },
+    "TransformingSkinImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "TransformingSkinTitle": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false
+    },
+    "TransformingSkinSubTitle": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false,
+      "required": true
+    },
+    "TypeOfSkincareList": {
+      "type": "component",
+      "component": "shared.list-item",
+      "repeatable": true
+    },
+    "ConcernsTitle": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false,
+      "required": true
+    },
+    "ConcernsList": {
+      "type": "component",
+      "component": "shared.list-item",
+      "repeatable": true,
+      "required": true
+    },
+    "BestSellingProductTitle": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false
+    },
+    "BestSellingSKUList": {
+      "type": "component",
+      "component": "shared.list-item",
+      "repeatable": true
+    },
+    "Promo_1_Title": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false
+    },
+    "Promo_1_Description": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false
+    },
+    "Promo_1_BtnTitle": {
+      "type": "string"
+    },
+    "Promo_1_Link": {
+      "type": "string"
+    },
+    "Promo_2_Title": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false
+    },
+    "Promo_2_Description": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false
+    },
+    "Promo_2_BtnTitle": {
+      "type": "string"
+    },
+    "Promo_2_Link": {
+      "type": "string"
+    },
+    "BecomeProTitle": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false
+    },
+    "BecomeProDescription": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false
+    },
+    "SupportingProTitle": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false
+    },
+    "SupportingProDescription": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false
+    },
+    "ProvenResultsTitle": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false,
+      "required": true
+    },
+    "ProvenResults": {
+      "type": "component",
+      "component": "shared.proven-result",
+      "repeatable": true,
+      "required": true
+    },
+    "HealthySkinTitle": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false
+    },
+    "HealthySkinSteps": {
+      "type": "component",
+      "component": "shared.product-card",
+      "repeatable": true,
+      "required": true
+    },
+    "WhyGlyMedTitle": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false,
+      "required": true
+    },
+    "WhyGlyMedSubTitle": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false
+    },
+    "TestimonialTitle": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false,
+      "required": true
+    },
+    "Testimonials": {
+      "type": "component",
+      "component": "shared.testimonials",
+      "repeatable": true,
+      "required": true
+    }
+  }
+}

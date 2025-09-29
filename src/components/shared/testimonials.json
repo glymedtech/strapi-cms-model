@@ -5,7 +5,7 @@
   },
   "options": {},
   "attributes": {
-    "Icon": {
+    "icon": {
       "type": "media",
       "multiple": false,
       "required": true,
@@ -14,11 +14,11 @@
         "files"
       ]
     },
-    "Description": {
+    "description": {
       "type": "text",
       "required": true
     },
-    "Author": {
+    "author": {
       "type": "string",
       "required": true
     }

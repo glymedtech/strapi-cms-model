@@ -384,27 +384,28 @@ export interface ApiHomePageHomePage extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    Banners: Schema.Attribute.Component<'shared.banner', true>;
-    BecomeProDescription: Schema.Attribute.Component<
-      'shared.text-with-color',
-      false
-    >;
-    BecomeProTitle: Schema.Attribute.Component<'shared.text-with-color', false>;
-    BestSellingProductTitle: Schema.Attribute.Component<
-      'shared.text-with-color',
-      false
-    >;
-    BestSellingSKUList: Schema.Attribute.Component<'shared.list-item', true>;
-    ConcernsList: Schema.Attribute.Component<'shared.list-item', true> &
+    banners: Schema.Attribute.Component<'shared.banner', true> &
       Schema.Attribute.Required;
-    ConcernsTitle: Schema.Attribute.Component<'shared.text-with-color', false> &
+    becomeProDescription: Schema.Attribute.Component<
+      'shared.text-with-color',
+      false
+    >;
+    becomeProTitle: Schema.Attribute.Component<'shared.text-with-color', false>;
+    bestSellingProductTitle: Schema.Attribute.Component<
+      'shared.text-with-color',
+      false
+    >;
+    bestSellingSKUList: Schema.Attribute.Component<'shared.list-item', true>;
+    concernsList: Schema.Attribute.Component<'shared.list-item', true> &
+      Schema.Attribute.Required;
+    concernsTitle: Schema.Attribute.Component<'shared.text-with-color', false> &
       Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    HealthySkinSteps: Schema.Attribute.Component<'shared.product-card', true> &
+    healthySkinSteps: Schema.Attribute.Component<'shared.product-card', true> &
       Schema.Attribute.Required;
-    HealthySkinTitle: Schema.Attribute.Component<
+    healthySkinTitle: Schema.Attribute.Component<
       'shared.text-with-color',
       false
     >;
@@ -414,70 +415,70 @@ export interface ApiHomePageHomePage extends Struct.CollectionTypeSchema {
       'api::home-page.home-page'
     > &
       Schema.Attribute.Private;
-    Promo_1_BtnTitle: Schema.Attribute.String;
-    Promo_1_Description: Schema.Attribute.Component<
+    promo_1_BtnTitle: Schema.Attribute.String;
+    promo_1_Description: Schema.Attribute.Component<
       'shared.text-with-color',
       false
     >;
-    Promo_1_Link: Schema.Attribute.String;
-    Promo_1_Title: Schema.Attribute.Component<'shared.text-with-color', false>;
-    Promo_2_BtnTitle: Schema.Attribute.String;
-    Promo_2_Description: Schema.Attribute.Component<
+    promo_1_Link: Schema.Attribute.String;
+    promo_1_Title: Schema.Attribute.Component<'shared.text-with-color', false>;
+    promo_2_BtnTitle: Schema.Attribute.String;
+    promo_2_Description: Schema.Attribute.Component<
       'shared.text-with-color',
       false
     >;
-    Promo_2_Link: Schema.Attribute.String;
-    Promo_2_Title: Schema.Attribute.Component<'shared.text-with-color', false>;
-    ProvenResults: Schema.Attribute.Component<'shared.proven-result', true> &
+    promo_2_Link: Schema.Attribute.String;
+    promo_2_Title: Schema.Attribute.Component<'shared.text-with-color', false>;
+    provenResults: Schema.Attribute.Component<'shared.proven-result', true> &
       Schema.Attribute.Required;
-    ProvenResultsTitle: Schema.Attribute.Component<
+    provenResultsTitle: Schema.Attribute.Component<
       'shared.text-with-color',
       false
     > &
       Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
-    Role: Schema.Attribute.Enumeration<['Pro', 'Retail', 'School', 'Web']> &
+    role: Schema.Attribute.Enumeration<['Pro', 'Retail', 'School', 'Web']> &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'Pro'>;
-    SupportingProDescription: Schema.Attribute.Component<
+    supportingProDescription: Schema.Attribute.Component<
       'shared.text-with-color',
       false
     >;
-    SupportingProTitle: Schema.Attribute.Component<
+    supportingProTitle: Schema.Attribute.Component<
       'shared.text-with-color',
       false
     >;
-    Testimonials: Schema.Attribute.Component<'shared.testimonials', true> &
+    testimonials: Schema.Attribute.Component<'shared.testimonials', true> &
       Schema.Attribute.Required;
-    TestimonialTitle: Schema.Attribute.Component<
+    testimonialTitle: Schema.Attribute.Component<
       'shared.text-with-color',
       false
     > &
       Schema.Attribute.Required;
-    TransformingSkinImage: Schema.Attribute.Media<'images' | 'files'> &
+    transformingSkinImage: Schema.Attribute.Media<'images' | 'files'> &
       Schema.Attribute.Required;
-    TransformingSkinSubTitle: Schema.Attribute.Component<
+    transformingSkinSubTitle: Schema.Attribute.Component<
       'shared.text-with-color',
       false
     > &
       Schema.Attribute.Required;
-    TransformingSkinTitle: Schema.Attribute.Component<
+    transformingSkinTitle: Schema.Attribute.Component<
       'shared.text-with-color',
       false
     >;
-    TypeOfSkincareList: Schema.Attribute.Component<'shared.list-item', true>;
+    typeOfSkincareList: Schema.Attribute.Component<'shared.list-item', true>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    WhyChooseGlyMedPlus: Schema.Attribute.Component<
+    whyChooseGlyMedPlus: Schema.Attribute.Component<
       'shared.why-choose-gly-med-plus',
       true
     >;
-    WhyGlyMedSubTitle: Schema.Attribute.Component<
+    whyGlyMedSubTitle: Schema.Attribute.Component<
       'shared.text-with-color',
       false
     >;
-    WhyGlyMedTitle: Schema.Attribute.Component<
+    whyGlyMedTitle: Schema.Attribute.Component<
       'shared.text-with-color',
       false
     > &

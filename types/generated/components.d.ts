@@ -6,45 +6,45 @@ export interface SharedBanner extends Struct.ComponentSchema {
     displayName: 'Banner';
   };
   attributes: {
-    AlignmentOnDesktop: Schema.Attribute.Enumeration<
+    alignmentOnDesktop: Schema.Attribute.Enumeration<
       ['left', 'right', 'center']
     > &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'left'>;
-    AlignmentOnMobile: Schema.Attribute.Enumeration<
+    alignmentOnMobile: Schema.Attribute.Enumeration<
       ['top', 'center', 'bottom']
     > &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'top'>;
-    BannerSubTitle: Schema.Attribute.Component<'shared.text-with-color', false>;
-    BannerTitle: Schema.Attribute.Component<'shared.text-with-color', false>;
-    ButtonColor: Schema.Attribute.String &
+    buttonColor: Schema.Attribute.String &
       Schema.Attribute.CustomField<'plugin::color-picker.color'>;
-    ButtonColorOnHover: Schema.Attribute.String &
+    buttonColorOnHover: Schema.Attribute.String &
       Schema.Attribute.CustomField<'plugin::color-picker.color'>;
-    ButtonLink: Schema.Attribute.String;
-    ButtonText: Schema.Attribute.String;
-    ButtonTextColor: Schema.Attribute.String &
+    buttonLink: Schema.Attribute.String;
+    buttonText: Schema.Attribute.String;
+    buttonTextColor: Schema.Attribute.String &
       Schema.Attribute.CustomField<'plugin::color-picker.color'>;
-    ButtonTextColorOnHover: Schema.Attribute.String &
+    buttonTextColorOnHover: Schema.Attribute.String &
       Schema.Attribute.CustomField<'plugin::color-picker.color'>;
-    CTAText: Schema.Attribute.Component<'shared.text-with-color', false>;
+    ctaText: Schema.Attribute.Component<'shared.text-with-color', false>;
     desktop_1440: Schema.Attribute.Media<'images'>;
-    EndDate: Schema.Attribute.DateTime;
-    IsExternalLink: Schema.Attribute.Boolean &
+    endDate: Schema.Attribute.DateTime;
+    isExternalLink: Schema.Attribute.Boolean &
       Schema.Attribute.DefaultTo<false>;
-    IsRegularTitle: Schema.Attribute.Boolean &
+    isRegularTitle: Schema.Attribute.Boolean &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<true>;
     laptop_1024: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
     mobile_375: Schema.Attribute.Media<'images' | 'files'>;
     mobile_480: Schema.Attribute.Media<'images'>;
-    PageType: Schema.Attribute.String & Schema.Attribute.Required;
-    StartDate: Schema.Attribute.DateTime;
-    SubTitleFontSizeDesktop: Schema.Attribute.Integer &
+    pageType: Schema.Attribute.String & Schema.Attribute.Required;
+    startDate: Schema.Attribute.DateTime;
+    subTitle: Schema.Attribute.Component<'shared.text-with-color', false>;
+    subTitleFontSizeDesktop: Schema.Attribute.Integer &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<18>;
     tablet_768: Schema.Attribute.Media<'images'>;
+    title: Schema.Attribute.Component<'shared.text-with-color', false>;
   };
 }
 
@@ -55,7 +55,7 @@ export interface SharedListItem extends Struct.ComponentSchema {
     icon: 'bulletList';
   };
   attributes: {
-    Text: Schema.Attribute.String & Schema.Attribute.Required;
+    text: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -65,12 +65,12 @@ export interface SharedProductCard extends Struct.ComponentSchema {
     displayName: 'ProductCard';
   };
   attributes: {
-    ButtonText: Schema.Attribute.String & Schema.Attribute.Required;
-    Description: Schema.Attribute.Text & Schema.Attribute.Required;
-    ProductImage: Schema.Attribute.Media<'images' | 'files'> &
+    buttonText: Schema.Attribute.String & Schema.Attribute.Required;
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    productImage: Schema.Attribute.Media<'images' | 'files'> &
       Schema.Attribute.Required;
-    Slug: Schema.Attribute.String & Schema.Attribute.Required;
-    Title: Schema.Attribute.String & Schema.Attribute.Required;
+    slug: Schema.Attribute.String & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -80,9 +80,9 @@ export interface SharedProvenResult extends Struct.ComponentSchema {
     displayName: 'ProvenResult';
   };
   attributes: {
-    After: Schema.Attribute.Component<'shared.text-with-color', false>;
-    Before: Schema.Attribute.Component<'shared.text-with-color', false>;
-    ResultImage: Schema.Attribute.Media<'images' | 'files'> &
+    after: Schema.Attribute.Component<'shared.text-with-color', false>;
+    before: Schema.Attribute.Component<'shared.text-with-color', false>;
+    resultImage: Schema.Attribute.Media<'images' | 'files'> &
       Schema.Attribute.Required;
   };
 }
@@ -108,9 +108,9 @@ export interface SharedTestimonials extends Struct.ComponentSchema {
     displayName: 'Testimonials';
   };
   attributes: {
-    Author: Schema.Attribute.String & Schema.Attribute.Required;
-    Description: Schema.Attribute.Text & Schema.Attribute.Required;
-    Icon: Schema.Attribute.Media<'images' | 'files'> &
+    author: Schema.Attribute.String & Schema.Attribute.Required;
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    icon: Schema.Attribute.Media<'images' | 'files'> &
       Schema.Attribute.Required;
   };
 }
@@ -121,10 +121,10 @@ export interface SharedTextWithColor extends Struct.ComponentSchema {
     displayName: 'TextWithColor';
   };
   attributes: {
-    Color: Schema.Attribute.String &
+    color: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.CustomField<'plugin::color-picker.color'>;
-    Text: Schema.Attribute.Blocks & Schema.Attribute.Required;
+    text: Schema.Attribute.Blocks & Schema.Attribute.Required;
   };
 }
 
@@ -134,24 +134,24 @@ export interface SharedWhyChooseGlyMedPlus extends Struct.ComponentSchema {
     displayName: 'WhyChooseGlyMedPlus';
   };
   attributes: {
-    ButtonAlignment: Schema.Attribute.Enumeration<['left', 'center', 'right']> &
+    buttonAlignment: Schema.Attribute.Enumeration<['left', 'center', 'right']> &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'right'>;
-    ButtonText: Schema.Attribute.String;
-    Description: Schema.Attribute.Component<'shared.text-with-color', false>;
-    Desktop: Schema.Attribute.Media<'images'>;
-    Desktop2x: Schema.Attribute.Media<'images'>;
-    IsExternalLink: Schema.Attribute.Boolean &
+    buttonText: Schema.Attribute.String;
+    description: Schema.Attribute.Component<'shared.text-with-color', false>;
+    desktop: Schema.Attribute.Media<'images'>;
+    desktop2x: Schema.Attribute.Media<'images'>;
+    isExternalLink: Schema.Attribute.Boolean &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<false>;
-    LinkURL: Schema.Attribute.String;
-    Portrait: Schema.Attribute.Media<'images'>;
-    Portrait2x: Schema.Attribute.Media<'images'>;
-    SliderName: Schema.Attribute.String & Schema.Attribute.Required;
-    TextAlignment: Schema.Attribute.Enumeration<['left', 'center', 'right']> &
+    linkURL: Schema.Attribute.String;
+    portrait: Schema.Attribute.Media<'images'>;
+    portrait2x: Schema.Attribute.Media<'images'>;
+    sliderName: Schema.Attribute.String & Schema.Attribute.Required;
+    textAlignment: Schema.Attribute.Enumeration<['left', 'center', 'right']> &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'left'>;
-    Title: Schema.Attribute.Component<'shared.text-with-color', false>;
+    title: Schema.Attribute.Component<'shared.text-with-color', false>;
   };
 }
 

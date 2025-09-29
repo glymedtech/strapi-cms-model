@@ -5,11 +5,11 @@
   },
   "options": {},
   "attributes": {
-    "SliderName": {
+    "sliderName": {
       "type": "string",
       "required": true
     },
-    "TextAlignment": {
+    "textAlignment": {
       "type": "enumeration",
       "required": true,
       "default": "left",
@@ -19,7 +19,7 @@
         "right"
       ]
     },
-    "ButtonAlignment": {
+    "buttonAlignment": {
       "type": "enumeration",
       "required": true,
       "default": "right",
@@ -29,49 +29,49 @@
         "right"
       ]
     },
-    "Title": {
+    "title": {
       "type": "component",
       "component": "shared.text-with-color",
       "repeatable": false
     },
-    "Description": {
+    "description": {
       "type": "component",
       "component": "shared.text-with-color",
       "repeatable": false
     },
-    "ButtonText": {
+    "buttonText": {
       "type": "string"
     },
-    "LinkURL": {
+    "linkURL": {
       "type": "string"
     },
-    "IsExternalLink": {
+    "isExternalLink": {
       "type": "boolean",
       "required": true,
       "default": false
     },
-    "Desktop": {
+    "desktop": {
       "type": "media",
       "multiple": false,
       "allowedTypes": [
         "images"
       ]
     },
-    "Desktop2x": {
+    "desktop2x": {
       "type": "media",
       "multiple": false,
       "allowedTypes": [
         "images"
       ]
     },
-    "Portrait": {
+    "portrait": {
       "type": "media",
       "multiple": false,
       "allowedTypes": [
         "images"
       ]
     },
-    "Portrait2x": {
+    "portrait2x": {
       "type": "media",
       "multiple": false,
       "allowedTypes": [

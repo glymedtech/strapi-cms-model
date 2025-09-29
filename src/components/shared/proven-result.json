@@ -5,7 +5,7 @@
   },
   "options": {},
   "attributes": {
-    "ResultImage": {
+    "resultImage": {
       "type": "media",
       "multiple": false,
       "required": true,
@@ -14,12 +14,12 @@
         "files"
       ]
     },
-    "Before": {
+    "before": {
       "type": "component",
       "component": "shared.text-with-color",
       "repeatable": false
     },
-    "After": {
+    "after": {
       "type": "component",
       "component": "shared.text-with-color",
       "repeatable": false

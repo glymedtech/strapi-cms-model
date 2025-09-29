@@ -11,12 +11,13 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Banners": {
+    "banners": {
       "type": "component",
       "component": "shared.banner",
-      "repeatable": true
+      "repeatable": true,
+      "required": true
     },
-    "Role": {
+    "role": {
       "type": "enumeration",
       "required": true,
       "default": "Pro",
@@ -27,7 +28,7 @@
         "Web"
       ]
     },
-    "TransformingSkinImage": {
+    "transformingSkinImage": {
       "type": "media",
       "multiple": false,
       "required": true,
@@ -36,142 +37,142 @@
         "files"
       ]
     },
-    "TransformingSkinTitle": {
+    "transformingSkinTitle": {
       "type": "component",
       "component": "shared.text-with-color",
       "repeatable": false
     },
-    "TransformingSkinSubTitle": {
+    "transformingSkinSubTitle": {
       "type": "component",
       "component": "shared.text-with-color",
       "repeatable": false,
       "required": true
     },
-    "TypeOfSkincareList": {
+    "typeOfSkincareList": {
       "type": "component",
       "component": "shared.list-item",
       "repeatable": true
     },
-    "ConcernsTitle": {
+    "concernsTitle": {
       "type": "component",
       "component": "shared.text-with-color",
       "repeatable": false,
       "required": true
     },
-    "ConcernsList": {
+    "concernsList": {
       "type": "component",
       "component": "shared.list-item",
       "repeatable": true,
       "required": true
     },
-    "BestSellingProductTitle": {
+    "bestSellingProductTitle": {
       "type": "component",
       "component": "shared.text-with-color",
       "repeatable": false
     },
-    "BestSellingSKUList": {
+    "bestSellingSKUList": {
       "type": "component",
       "component": "shared.list-item",
       "repeatable": true
     },
-    "Promo_1_Title": {
+    "promo_1_Title": {
       "type": "component",
       "component": "shared.text-with-color",
       "repeatable": false
     },
-    "Promo_1_Description": {
+    "promo_1_Description": {
       "type": "component",
       "component": "shared.text-with-color",
       "repeatable": false
     },
-    "Promo_1_BtnTitle": {
+    "promo_1_BtnTitle": {
       "type": "string"
     },
-    "Promo_1_Link": {
+    "promo_1_Link": {
       "type": "string"
     },
-    "Promo_2_Title": {
+    "promo_2_Title": {
       "type": "component",
       "component": "shared.text-with-color",
       "repeatable": false
     },
-    "Promo_2_Description": {
+    "promo_2_Description": {
       "type": "component",
       "component": "shared.text-with-color",
       "repeatable": false
     },
-    "Promo_2_BtnTitle": {
+    "promo_2_BtnTitle": {
       "type": "string"
     },
-    "Promo_2_Link": {
+    "promo_2_Link": {
       "type": "string"
     },
-    "BecomeProTitle": {
+    "becomeProTitle": {
       "type": "component",
       "component": "shared.text-with-color",
       "repeatable": false
     },
-    "BecomeProDescription": {
+    "becomeProDescription": {
       "type": "component",
       "component": "shared.text-with-color",
       "repeatable": false
     },
-    "SupportingProTitle": {
+    "supportingProTitle": {
       "type": "component",
       "component": "shared.text-with-color",
       "repeatable": false
     },
-    "SupportingProDescription": {
+    "supportingProDescription": {
       "type": "component",
       "component": "shared.text-with-color",
       "repeatable": false
     },
-    "ProvenResultsTitle": {
+    "provenResultsTitle": {
       "type": "component",
       "component": "shared.text-with-color",
       "repeatable": false,
       "required": true
     },
-    "ProvenResults": {
+    "provenResults": {
       "type": "component",
       "component": "shared.proven-result",
       "repeatable": true,
       "required": true
     },
-    "HealthySkinTitle": {
+    "healthySkinTitle": {
       "type": "component",
       "component": "shared.text-with-color",
       "repeatable": false
     },
-    "HealthySkinSteps": {
+    "healthySkinSteps": {
       "type": "component",
       "component": "shared.product-card",
       "repeatable": true,
       "required": true
     },
-    "WhyGlyMedTitle": {
+    "whyGlyMedTitle": {
       "type": "component",
       "component": "shared.text-with-color",
       "repeatable": false,
       "required": true
     },
-    "WhyGlyMedSubTitle": {
+    "whyGlyMedSubTitle": {
       "type": "component",
       "component": "shared.text-with-color",
       "repeatable": false
     },
-    "WhyChooseGlyMedPlus": {
+    "whyChooseGlyMedPlus": {
       "type": "component",
       "component": "shared.why-choose-gly-med-plus",
       "repeatable": true
     },
-    "TestimonialTitle": {
+    "testimonialTitle": {
       "type": "component",
       "component": "shared.text-with-color",
       "repeatable": false,
       "required": true
     },
-    "Testimonials": {
+    "testimonials": {
       "type": "component",
       "component": "shared.testimonials",
       "repeatable": true,

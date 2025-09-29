@@ -5,11 +5,11 @@
   },
   "options": {},
   "attributes": {
-    "PageType": {
+    "pageType": {
       "type": "string",
       "required": true
     },
-    "AlignmentOnDesktop": {
+    "alignmentOnDesktop": {
       "type": "enumeration",
       "required": true,
       "default": "left",
@@ -19,7 +19,7 @@
         "center"
       ]
     },
-    "AlignmentOnMobile": {
+    "alignmentOnMobile": {
       "type": "enumeration",
       "required": true,
       "default": "top",
@@ -29,66 +29,66 @@
         "bottom"
       ]
     },
-    "BannerTitle": {
+    "title": {
       "type": "component",
       "component": "shared.text-with-color",
       "repeatable": false
     },
-    "IsRegularTitle": {
+    "isRegularTitle": {
       "type": "boolean",
       "required": true,
       "default": true
     },
-    "BannerSubTitle": {
+    "subTitle": {
       "type": "component",
       "component": "shared.text-with-color",
       "repeatable": false
     },
-    "SubTitleFontSizeDesktop": {
+    "subTitleFontSizeDesktop": {
       "type": "integer",
       "required": true,
       "default": 18
     },
-    "CTAText": {
+    "ctaText": {
       "type": "component",
       "component": "shared.text-with-color",
       "repeatable": false
     },
-    "ButtonText": {
+    "buttonText": {
       "type": "string"
     },
-    "ButtonColor": {
+    "buttonColor": {
       "type": "customField",
       "customField": "plugin::color-picker.color",
       "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
     },
-    "ButtonColorOnHover": {
+    "buttonColorOnHover": {
       "type": "customField",
       "customField": "plugin::color-picker.color",
       "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
     },
-    "ButtonTextColor": {
+    "buttonTextColor": {
       "type": "customField",
       "customField": "plugin::color-picker.color",
       "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
     },
-    "ButtonTextColorOnHover": {
+    "buttonTextColorOnHover": {
       "type": "customField",
       "customField": "plugin::color-picker.color",
       "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
     },
-    "ButtonLink": {
+    "buttonLink": {
       "type": "string"
     },
-    "IsExternalLink": {
+    "isExternalLink": {
       "type": "boolean",
       "default": false
     },
-    "StartDate": {
+    "startDate": {
       "type": "datetime",
       "required": false
     },
-    "EndDate": {
+    "endDate": {
       "type": "datetime",
       "required": false
     },

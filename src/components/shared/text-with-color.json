@@ -5,11 +5,11 @@
   },
   "options": {},
   "attributes": {
-    "Text": {
+    "text": {
       "type": "blocks",
       "required": true
     },
-    "Color": {
+    "color": {
       "type": "customField",
       "customField": "plugin::color-picker.color",
       "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",

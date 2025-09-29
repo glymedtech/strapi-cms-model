@@ -5,7 +5,7 @@
   },
   "options": {},
   "attributes": {
-    "ProductImage": {
+    "productImage": {
       "type": "media",
       "multiple": false,
       "required": true,
@@ -14,19 +14,19 @@
         "files"
       ]
     },
-    "Title": {
+    "title": {
       "type": "string",
       "required": true
     },
-    "Description": {
+    "description": {
       "type": "text",
       "required": true
     },
-    "ButtonText": {
+    "buttonText": {
       "type": "string",
       "required": true
     },
-    "Slug": {
+    "slug": {
       "type": "string",
       "required": true
     }

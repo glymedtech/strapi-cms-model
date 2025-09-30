@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_shared_text_with_colors",
+  "info": {
+    "displayName": "TextWithColor"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "blocks",
+      "required": true
+    },
+    "color": {
+      "type": "customField",
+      "customField": "plugin::color-picker.color",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+    }
+  },
+  "config": {}
+}

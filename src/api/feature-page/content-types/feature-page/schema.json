@@ -79,16 +79,6 @@
       "component": "shared.list",
       "repeatable": true
     },
-    "role": {
-      "type": "enumeration",
-      "default": "web",
-      "enum": [
-        "school",
-        "pro",
-        "retail",
-        "web"
-      ]
-    },
     "startTime": {
       "type": "datetime",
       "required": true
@@ -96,6 +86,12 @@
     "endTime": {
       "type": "datetime",
       "required": false
+    },
+    "role": {
+      "type": "component",
+      "component": "shared.list",
+      "repeatable": true,
+      "required": true
     }
   }
 }

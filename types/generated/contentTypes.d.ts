@@ -406,8 +406,8 @@ export interface ApiFeaturePageFeaturePage extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     portalId: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
-    role: Schema.Attribute.Enumeration<['school', 'pro', 'retail', 'web']> &
-      Schema.Attribute.DefaultTo<'web'>;
+    role: Schema.Attribute.Component<'shared.list', true> &
+      Schema.Attribute.Required;
     slug: Schema.Attribute.String & Schema.Attribute.Required;
     startTime: Schema.Attribute.DateTime & Schema.Attribute.Required;
     subTitle: Schema.Attribute.Component<'shared.text-with-color', false>;

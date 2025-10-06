@@ -1,0 +1,101 @@
+{
+  "kind": "collectionType",
+  "collectionName": "feature_pages",
+  "info": {
+    "singularName": "feature-page",
+    "pluralName": "feature-pages",
+    "displayName": "FeaturePage"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "banner": {
+      "type": "component",
+      "component": "shared.banner",
+      "repeatable": false,
+      "required": true
+    },
+    "slug": {
+      "type": "string",
+      "required": true
+    },
+    "title": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false
+    },
+    "subTitle": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false
+    },
+    "description": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false
+    },
+    "asset": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "video": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "files",
+        "videos"
+      ]
+    },
+    "videoPoster": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "portalId": {
+      "type": "string"
+    },
+    "formId": {
+      "type": "string"
+    },
+    "featuredProductsTitle": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false
+    },
+    "featuredProductsSkuList": {
+      "type": "component",
+      "component": "shared.list",
+      "repeatable": true
+    },
+    "role": {
+      "type": "enumeration",
+      "default": "web",
+      "enum": [
+        "school",
+        "pro",
+        "retail",
+        "web"
+      ]
+    },
+    "startTime": {
+      "type": "datetime",
+      "required": true
+    },
+    "endTime": {
+      "type": "datetime",
+      "required": false
+    }
+  }
+}

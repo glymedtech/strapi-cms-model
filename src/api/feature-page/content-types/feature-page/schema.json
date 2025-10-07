@@ -81,16 +81,24 @@
       "type": "datetime",
       "required": false
     },
-    "role": {
-      "type": "component",
-      "component": "shared.list",
-      "repeatable": true,
-      "required": true
-    },
     "banner": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::banner.banner"
+    },
+    "role": {
+      "type": "customField",
+      "customField": "plugin::multi-select.multi-select",
+      "default": "[]",
+      "options": [
+        "web",
+        "retail",
+        "pro",
+        "school"
+      ],
+      "required": true,
+      "min": 1,
+      "max": 4
     }
   }
 }

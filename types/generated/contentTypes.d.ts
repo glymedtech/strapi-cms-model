@@ -469,8 +469,20 @@ export interface ApiFeaturePageFeaturePage extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     portalId: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
-    role: Schema.Attribute.Component<'shared.list', true> &
-      Schema.Attribute.Required;
+    role: Schema.Attribute.JSON &
+      Schema.Attribute.Required &
+      Schema.Attribute.CustomField<
+        'plugin::multi-select.multi-select',
+        ['web', 'retail', 'pro', 'school']
+      > &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 4;
+          min: 1;
+        },
+        number
+      > &
+      Schema.Attribute.DefaultTo<'[]'>;
     slug: Schema.Attribute.String & Schema.Attribute.Required;
     startTime: Schema.Attribute.DateTime & Schema.Attribute.Required;
     subTitle: Schema.Attribute.Component<'shared.text-with-color', false>;

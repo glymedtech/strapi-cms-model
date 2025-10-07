@@ -449,8 +449,7 @@ export interface ApiFeaturePageFeaturePage extends Struct.CollectionTypeSchema {
   };
   attributes: {
     asset: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    banner: Schema.Attribute.Component<'shared.banner', false> &
-      Schema.Attribute.Required;
+    banner: Schema.Attribute.Relation<'oneToOne', 'api::banner.banner'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

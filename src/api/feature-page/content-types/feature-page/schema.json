@@ -11,12 +11,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "banner": {
-      "type": "component",
-      "component": "shared.banner",
-      "repeatable": false,
-      "required": true
-    },
     "slug": {
       "type": "string",
       "required": true
@@ -92,6 +86,11 @@
       "component": "shared.list",
       "repeatable": true,
       "required": true
+    },
+    "banner": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::banner.banner"
     }
   }
 }

@@ -408,7 +408,7 @@ export interface ApiBannerBanner extends Struct.CollectionTypeSchema {
     ctaText: Schema.Attribute.Component<'shared.text-with-color', false>;
     desktop_1440: Schema.Attribute.Media<'images'>;
     endDate: Schema.Attribute.DateTime;
-    home: Schema.Attribute.Relation<'manyToOne', 'api::home.home'>;
+    homes: Schema.Attribute.Relation<'manyToMany', 'api::home.home'>;
     isExternalLink: Schema.Attribute.Boolean &
       Schema.Attribute.DefaultTo<false>;
     isRegularTitle: Schema.Attribute.Boolean &
@@ -448,7 +448,7 @@ export interface ApiHomeHome extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    banners: Schema.Attribute.Relation<'oneToMany', 'api::banner.banner'>;
+    banners: Schema.Attribute.Relation<'manyToMany', 'api::banner.banner'>;
     becomeProDescription: Schema.Attribute.Component<
       'shared.text-with-color',
       false

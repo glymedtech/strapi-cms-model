@@ -179,9 +179,9 @@
     },
     "banners": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToMany",
       "target": "api::banner.banner",
-      "mappedBy": "home"
+      "mappedBy": "homes"
     }
   }
 }

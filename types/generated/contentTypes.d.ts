@@ -373,6 +373,70 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiBannerBanner extends Struct.CollectionTypeSchema {
+  collectionName: 'banners';
+  info: {
+    displayName: 'Banner';
+    pluralName: 'banners';
+    singularName: 'banner';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    alignmentDesktop: Schema.Attribute.Enumeration<
+      ['left', 'right', 'center']
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'left'>;
+    alignmentMobile: Schema.Attribute.Enumeration<['top', 'center', 'bottom']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'top'>;
+    buttonColor: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+    buttonColorOnHover: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+    buttonLink: Schema.Attribute.String;
+    buttonText: Schema.Attribute.String;
+    buttonTextColor: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+    buttonTextColorOnHover: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    ctaText: Schema.Attribute.Component<'shared.text-with-color', false>;
+    desktop_1440: Schema.Attribute.Media<'images'>;
+    endDate: Schema.Attribute.DateTime;
+    home: Schema.Attribute.Relation<'manyToOne', 'api::home.home'>;
+    isExternalLink: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
+    isRegularTitle: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<true>;
+    laptop_1024: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::banner.banner'
+    > &
+      Schema.Attribute.Private;
+    mobile_375: Schema.Attribute.Media<'images' | 'files'>;
+    mobile_480: Schema.Attribute.Media<'images'>;
+    pageType: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    startDate: Schema.Attribute.DateTime;
+    subTitle: Schema.Attribute.String;
+    subTitleFontSizeDesktop: Schema.Attribute.Integer &
+      Schema.Attribute.DefaultTo<18>;
+    tablet_768: Schema.Attribute.Media<'images'>;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiHomeHome extends Struct.CollectionTypeSchema {
   collectionName: 'homes';
   info: {
@@ -384,8 +448,7 @@ export interface ApiHomeHome extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    banners: Schema.Attribute.Component<'shared.banner', true> &
-      Schema.Attribute.Required;
+    banners: Schema.Attribute.Relation<'oneToMany', 'api::banner.banner'>;
     becomeProDescription: Schema.Attribute.Component<
       'shared.text-with-color',
       false
@@ -996,6 +1059,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::banner.banner': ApiBannerBanner;
       'api::home.home': ApiHomeHome;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

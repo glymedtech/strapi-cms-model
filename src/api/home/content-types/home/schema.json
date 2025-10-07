@@ -11,12 +11,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "banners": {
-      "type": "component",
-      "component": "shared.banner",
-      "repeatable": true,
-      "required": true
-    },
     "role": {
       "type": "enumeration",
       "required": true,
@@ -182,6 +176,12 @@
       "component": "shared.testimonial",
       "repeatable": true,
       "required": true
+    },
+    "banners": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::banner.banner",
+      "mappedBy": "home"
     }
   }
 }

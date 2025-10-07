@@ -437,6 +437,53 @@ export interface ApiBannerBanner extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiFeaturePageFeaturePage extends Struct.CollectionTypeSchema {
+  collectionName: 'feature_pages';
+  info: {
+    displayName: 'FeaturePage';
+    pluralName: 'feature-pages';
+    singularName: 'feature-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    asset: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    banner: Schema.Attribute.Component<'shared.banner', false> &
+      Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Component<'shared.text-with-color', false>;
+    endTime: Schema.Attribute.DateTime;
+    featuredProductsSkuList: Schema.Attribute.Component<'shared.list', true>;
+    featuredProductsTitle: Schema.Attribute.Component<
+      'shared.text-with-color',
+      false
+    >;
+    formId: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::feature-page.feature-page'
+    > &
+      Schema.Attribute.Private;
+    portalId: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    role: Schema.Attribute.Component<'shared.list', true> &
+      Schema.Attribute.Required;
+    slug: Schema.Attribute.String & Schema.Attribute.Required;
+    startTime: Schema.Attribute.DateTime & Schema.Attribute.Required;
+    subTitle: Schema.Attribute.Component<'shared.text-with-color', false>;
+    title: Schema.Attribute.Component<'shared.text-with-color', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    video: Schema.Attribute.Media<'files' | 'videos'>;
+    videoPoster: Schema.Attribute.Media<'images' | 'files'>;
+  };
+}
+
 export interface ApiHomeHome extends Struct.CollectionTypeSchema {
   collectionName: 'homes';
   info: {
@@ -1060,6 +1107,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::banner.banner': ApiBannerBanner;
+      'api::feature-page.feature-page': ApiFeaturePageFeaturePage;
       'api::home.home': ApiHomeHome;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

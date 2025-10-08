@@ -461,6 +461,7 @@ export interface ApiFeaturePageFeaturePage extends Struct.CollectionTypeSchema {
       false
     >;
     formId: Schema.Attribute.String;
+    formTitle: Schema.Attribute.Component<'shared.text-with-color', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -492,6 +493,7 @@ export interface ApiFeaturePageFeaturePage extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     video: Schema.Attribute.Media<'files' | 'videos'>;
     videoPoster: Schema.Attribute.Media<'images' | 'files'>;
+    videoTitle: Schema.Attribute.Component<'shared.text-with-color', false>;
   };
 }
 

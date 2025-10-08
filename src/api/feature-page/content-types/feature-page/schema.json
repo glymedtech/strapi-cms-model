@@ -99,6 +99,16 @@
       "required": true,
       "min": 1,
       "max": 4
+    },
+    "videoTitle": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false
+    },
+    "formTitle": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false
     }
   }
 }

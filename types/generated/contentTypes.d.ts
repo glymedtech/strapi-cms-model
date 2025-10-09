@@ -423,7 +423,9 @@ export interface ApiBannerBanner extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     mobile_375: Schema.Attribute.Media<'images' | 'files'>;
     mobile_480: Schema.Attribute.Media<'images'>;
-    pageType: Schema.Attribute.String & Schema.Attribute.Required;
+    pageType: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
     publishedAt: Schema.Attribute.DateTime;
     startDate: Schema.Attribute.DateTime;
     subTitle: Schema.Attribute.Component<'shared.text-with-color', false>;
@@ -484,7 +486,9 @@ export interface ApiFeaturePageFeaturePage extends Struct.CollectionTypeSchema {
         number
       > &
       Schema.Attribute.DefaultTo<'[]'>;
-    slug: Schema.Attribute.String & Schema.Attribute.Required;
+    slug: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
     startTime: Schema.Attribute.DateTime & Schema.Attribute.Required;
     subTitle: Schema.Attribute.Component<'shared.text-with-color', false>;
     title: Schema.Attribute.Component<'shared.text-with-color', false>;

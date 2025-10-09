@@ -451,7 +451,6 @@ export interface ApiBlogPageBlogPage extends Struct.SingleTypeSchema {
   };
   attributes: {
     banner: Schema.Attribute.Relation<'oneToOne', 'api::banner.banner'>;
-    blogs: Schema.Attribute.Relation<'oneToMany', 'api::blog.blog'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -462,6 +461,8 @@ export interface ApiBlogPageBlogPage extends Struct.SingleTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    subTitle: Schema.Attribute.Component<'shared.text-with-color', false>;
+    title: Schema.Attribute.Component<'shared.text-with-color', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

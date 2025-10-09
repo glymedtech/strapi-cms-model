@@ -16,10 +16,15 @@
       "relation": "oneToOne",
       "target": "api::banner.banner"
     },
-    "blogs": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::blog.blog"
+    "title": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false
+    },
+    "subTitle": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false
     }
   }
 }

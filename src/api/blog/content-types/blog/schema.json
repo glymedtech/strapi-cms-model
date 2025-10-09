@@ -16,22 +16,18 @@
       "required": true,
       "unique": true
     },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "previewText": {
+      "type": "text",
+      "required": true
+    },
     "metaTag": {
       "type": "component",
       "component": "shared.meta-tag",
       "repeatable": false
-    },
-    "title": {
-      "type": "component",
-      "component": "shared.text-with-color",
-      "repeatable": false,
-      "required": true
-    },
-    "previewText": {
-      "type": "component",
-      "component": "shared.text-with-color",
-      "repeatable": false,
-      "required": true
     },
     "previewImage": {
       "type": "media",
@@ -55,7 +51,7 @@
       "required": true,
       "default": true
     },
-    "bubspotUrl": {
+    "hubspotUrl": {
       "type": "string",
       "required": true,
       "unique": true

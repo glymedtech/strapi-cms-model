@@ -483,13 +483,13 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
     active: Schema.Attribute.Boolean &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<true>;
-    bubspotUrl: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.Unique;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     header: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    hubspotUrl: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -498,14 +498,12 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
     metaTag: Schema.Attribute.Component<'shared.meta-tag', false>;
     postDate: Schema.Attribute.DateTime & Schema.Attribute.Required;
     previewImage: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
-    previewText: Schema.Attribute.Component<'shared.text-with-color', false> &
-      Schema.Attribute.Required;
+    previewText: Schema.Attribute.Text & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
-    title: Schema.Attribute.Component<'shared.text-with-color', false> &
-      Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

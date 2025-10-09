@@ -426,11 +426,11 @@ export interface ApiBannerBanner extends Struct.CollectionTypeSchema {
     pageType: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     startDate: Schema.Attribute.DateTime;
-    subTitle: Schema.Attribute.String;
+    subTitle: Schema.Attribute.Component<'shared.text-with-color', false>;
     subTitleFontSizeDesktop: Schema.Attribute.Integer &
       Schema.Attribute.DefaultTo<18>;
     tablet_768: Schema.Attribute.Media<'images'>;
-    title: Schema.Attribute.String;
+    title: Schema.Attribute.Component<'shared.text-with-color', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

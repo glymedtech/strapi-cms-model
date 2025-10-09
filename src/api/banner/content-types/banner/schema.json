@@ -13,7 +13,18 @@
   "attributes": {
     "pageType": {
       "type": "string",
-      "required": true
+      "required": true,
+      "unique": true
+    },
+    "title": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false
+    },
+    "subTitle": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false
     },
     "alignmentDesktop": {
       "type": "enumeration",
@@ -35,16 +46,10 @@
         "bottom"
       ]
     },
-    "title": {
-      "type": "string"
-    },
     "isRegularTitle": {
       "type": "boolean",
       "required": true,
       "default": true
-    },
-    "subTitle": {
-      "type": "string"
     },
     "subTitleFontSizeDesktop": {
       "type": "integer",

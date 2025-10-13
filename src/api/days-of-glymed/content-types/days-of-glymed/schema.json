@@ -1,0 +1,75 @@
+{
+  "kind": "collectionType",
+  "collectionName": "days_of_glymeds",
+  "info": {
+    "singularName": "days-of-glymed",
+    "pluralName": "days-of-glymeds",
+    "displayName": "DaysOfGlymed"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "banner": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::banner.banner",
+      "inversedBy": "days_of_glymeds"
+    },
+    "role": {
+      "type": "enumeration",
+      "required": true,
+      "default": "Web",
+      "enum": [
+        "Web",
+        "Pro",
+        "Retail"
+      ]
+    },
+    "startDate": {
+      "type": "datetime",
+      "required": true
+    },
+    "endDate": {
+      "type": "datetime",
+      "required": true
+    },
+    "countdownSectionBackgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "countDownSectionTitle": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false,
+      "required": true
+    },
+    "countDownSectionDealsEndingTitle": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false,
+      "required": true
+    },
+    "countDownSectionDealsEndedTitle": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false
+    },
+    "countDownTimerInstruction": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false,
+      "required": true
+    },
+    "featured_products": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::featured-product.featured-product"
+    }
+  }
+}

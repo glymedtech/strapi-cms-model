@@ -138,6 +138,12 @@
       "relation": "manyToMany",
       "target": "api::home.home",
       "inversedBy": "banners"
+    },
+    "days_of_glymeds": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::days-of-glymed.days-of-glymed",
+      "mappedBy": "banner"
     }
   }
 }

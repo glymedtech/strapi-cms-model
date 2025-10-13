@@ -406,6 +406,10 @@ export interface ApiBannerBanner extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     ctaText: Schema.Attribute.Component<'shared.text-with-color', false>;
+    days_of_glymeds: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::days-of-glymed.days-of-glymed'
+    >;
     desktop_1440: Schema.Attribute.Media<'images'>;
     endDate: Schema.Attribute.DateTime;
     homes: Schema.Attribute.Relation<'manyToMany', 'api::home.home'>;
@@ -433,6 +437,65 @@ export interface ApiBannerBanner extends Struct.CollectionTypeSchema {
       Schema.Attribute.DefaultTo<18>;
     tablet_768: Schema.Attribute.Media<'images'>;
     title: Schema.Attribute.Component<'shared.text-with-color', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiDaysOfGlymedDaysOfGlymed
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'days_of_glymeds';
+  info: {
+    displayName: 'DaysOfGlymed';
+    pluralName: 'days-of-glymeds';
+    singularName: 'days-of-glymed';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    banner: Schema.Attribute.Relation<'manyToOne', 'api::banner.banner'>;
+    countdownSectionBackgroundImage: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.Required;
+    countDownSectionDealsEndedTitle: Schema.Attribute.Component<
+      'shared.text-with-color',
+      false
+    >;
+    countDownSectionDealsEndingTitle: Schema.Attribute.Component<
+      'shared.text-with-color',
+      false
+    > &
+      Schema.Attribute.Required;
+    countDownSectionTitle: Schema.Attribute.Component<
+      'shared.text-with-color',
+      false
+    > &
+      Schema.Attribute.Required;
+    countDownTimerInstruction: Schema.Attribute.Component<
+      'shared.text-with-color',
+      false
+    > &
+      Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    endDate: Schema.Attribute.DateTime & Schema.Attribute.Required;
+    featured_products: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::featured-product.featured-product'
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::days-of-glymed.days-of-glymed'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    role: Schema.Attribute.Enumeration<['Web', 'Pro', 'Retail']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Web'>;
+    startDate: Schema.Attribute.DateTime & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -498,6 +561,47 @@ export interface ApiFeaturePageFeaturePage extends Struct.CollectionTypeSchema {
     video: Schema.Attribute.Media<'files' | 'videos'>;
     videoPoster: Schema.Attribute.Media<'images' | 'files'>;
     videoTitle: Schema.Attribute.Component<'shared.text-with-color', false>;
+  };
+}
+
+export interface ApiFeaturedProductFeaturedProduct
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'featured_products';
+  info: {
+    displayName: 'FeaturedProduct';
+    pluralName: 'featured-products';
+    singularName: 'featured-product';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    discount: Schema.Attribute.String & Schema.Attribute.Required;
+    endDate: Schema.Attribute.DateTime & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::featured-product.featured-product'
+    > &
+      Schema.Attribute.Private;
+    promotionDayAnimation: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.Required;
+    promotionOpenProductVideo: Schema.Attribute.Media<'videos'> &
+      Schema.Attribute.Required;
+    promotionThumbnail: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    sku: Schema.Attribute.String & Schema.Attribute.Required;
+    startDate: Schema.Attribute.DateTime & Schema.Attribute.Required;
+    type: Schema.Attribute.Enumeration<['Product Discount', 'Free Shipping']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Product Discount'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
   };
 }
 
@@ -1124,7 +1228,9 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::banner.banner': ApiBannerBanner;
+      'api::days-of-glymed.days-of-glymed': ApiDaysOfGlymedDaysOfGlymed;
       'api::feature-page.feature-page': ApiFeaturePageFeaturePage;
+      'api::featured-product.featured-product': ApiFeaturedProductFeaturedProduct;
       'api::home.home': ApiHomeHome;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

@@ -649,6 +649,10 @@ export interface ApiProductsPageProductsPage extends Struct.SingleTypeSchema {
     pigmentationMenuImage: Schema.Attribute.Media<'images'>;
     poresMenuImage: Schema.Attribute.Media<'images'>;
     postTreatmentMenuImage: Schema.Attribute.Media<'images'>;
+    productRubricPdf: Schema.Attribute.Media<
+      'images' | 'videos' | 'audios' | 'files'
+    > &
+      Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     rosaceaMenuImage: Schema.Attribute.Media<'images'>;
     serumMenuImage: Schema.Attribute.Media<'images'>;

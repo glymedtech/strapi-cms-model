@@ -164,6 +164,17 @@
       "allowedTypes": [
         "images"
       ]
+    },
+    "productRubricPdf": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "videos",
+        "audios",
+        "files"
+      ]
     }
   }
 }

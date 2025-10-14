@@ -614,6 +614,72 @@ export interface ApiHomeHome extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiProductsPageProductsPage extends Struct.SingleTypeSchema {
+  collectionName: 'products_pages';
+  info: {
+    displayName: 'ProductsPage';
+    pluralName: 'products-pages';
+    singularName: 'products-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    acneMenuImage: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    agingMenuImage: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.Required;
+    banner: Schema.Attribute.Relation<'oneToOne', 'api::banner.banner'>;
+    cleansersMenuImage: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    drynessMenuImage: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.Required;
+    exfoliatorsMenuImage: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.Required;
+    eyeCreamsMenuImage: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.Required;
+    lipCareMenuImage: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::products-page.products-page'
+    > &
+      Schema.Attribute.Private;
+    masquesMenuImage: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.Required;
+    moisturizersMenuImage: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.Required;
+    peelsMenuImage: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.Required;
+    photoDamageMenuImage: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.Required;
+    pigmentationMenuImage: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.Required;
+    poresMenuImage: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.Required;
+    postTreatmentMenuImage: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    rosaceaMenuImage: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.Required;
+    serumMenuImage: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.Required;
+    sunCareMenuImage: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.Required;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    wrinklesMenuImage: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.Required;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -1126,6 +1192,7 @@ declare module '@strapi/strapi' {
       'api::banner.banner': ApiBannerBanner;
       'api::feature-page.feature-page': ApiFeaturePageFeaturePage;
       'api::home.home': ApiHomeHome;
+      'api::products-page.products-page': ApiProductsPageProductsPage;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

@@ -625,58 +625,41 @@ export interface ApiProductsPageProductsPage extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    acneMenuImage: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
-    agingMenuImage: Schema.Attribute.Media<'images'> &
-      Schema.Attribute.Required;
+    acneMenuImage: Schema.Attribute.Media<'images'>;
+    agingMenuImage: Schema.Attribute.Media<'images'>;
     banner: Schema.Attribute.Relation<'oneToOne', 'api::banner.banner'>;
-    cleansersMenuImage: Schema.Attribute.Media<'images'> &
-      Schema.Attribute.Required;
+    cleansersMenuImage: Schema.Attribute.Media<'images'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    drynessMenuImage: Schema.Attribute.Media<'images'> &
-      Schema.Attribute.Required;
-    exfoliatorsMenuImage: Schema.Attribute.Media<'images'> &
-      Schema.Attribute.Required;
-    eyeCreamsMenuImage: Schema.Attribute.Media<'images'> &
-      Schema.Attribute.Required;
-    lipCareMenuImage: Schema.Attribute.Media<'images'> &
-      Schema.Attribute.Required;
+    drynessMenuImage: Schema.Attribute.Media<'images'>;
+    exfoliatorsMenuImage: Schema.Attribute.Media<'images'>;
+    eyeCreamsMenuImage: Schema.Attribute.Media<'images'>;
+    lipCareMenuImage: Schema.Attribute.Media<'images'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::products-page.products-page'
     > &
       Schema.Attribute.Private;
-    masquesMenuImage: Schema.Attribute.Media<'images'> &
-      Schema.Attribute.Required;
-    moisturizersMenuImage: Schema.Attribute.Media<'images'> &
-      Schema.Attribute.Required;
-    peelsMenuImage: Schema.Attribute.Media<'images'> &
-      Schema.Attribute.Required;
-    photoDamageMenuImage: Schema.Attribute.Media<'images'> &
-      Schema.Attribute.Required;
-    pigmentationMenuImage: Schema.Attribute.Media<'images'> &
-      Schema.Attribute.Required;
-    poresMenuImage: Schema.Attribute.Media<'images'> &
-      Schema.Attribute.Required;
-    postTreatmentMenuImage: Schema.Attribute.Media<'images'> &
-      Schema.Attribute.Required;
+    masquesMenuImage: Schema.Attribute.Media<'images'>;
+    moisturizersMenuImage: Schema.Attribute.Media<'images'>;
+    peelsMenuImage: Schema.Attribute.Media<'images'>;
+    photoDamageMenuImage: Schema.Attribute.Media<'images'>;
+    pigmentationMenuImage: Schema.Attribute.Media<'images'>;
+    poresMenuImage: Schema.Attribute.Media<'images'>;
+    postTreatmentMenuImage: Schema.Attribute.Media<'images'>;
     publishedAt: Schema.Attribute.DateTime;
-    rosaceaMenuImage: Schema.Attribute.Media<'images'> &
-      Schema.Attribute.Required;
-    serumMenuImage: Schema.Attribute.Media<'images'> &
-      Schema.Attribute.Required;
-    sunCareMenuImage: Schema.Attribute.Media<'images'> &
-      Schema.Attribute.Required;
+    rosaceaMenuImage: Schema.Attribute.Media<'images'>;
+    serumMenuImage: Schema.Attribute.Media<'images'>;
+    sunCareMenuImage: Schema.Attribute.Media<'images'>;
     title: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    wrinklesMenuImage: Schema.Attribute.Media<'images'> &
-      Schema.Attribute.Required;
+    wrinklesMenuImage: Schema.Attribute.Media<'images'>;
   };
 }
 

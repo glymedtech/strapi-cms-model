@@ -24,12 +24,6 @@
       "component": "shared.text-with-color",
       "repeatable": false,
       "required": true
-    },
-    "uac_page": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::uac-page.uac-page",
-      "inversedBy": "uac_achievements"
     }
   }
 }

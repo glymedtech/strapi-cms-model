@@ -88,12 +88,6 @@
       "type": "component",
       "component": "shared.list",
       "repeatable": true
-    },
-    "uac_page": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::uac-page.uac-page",
-      "inversedBy": "uac_members"
     }
   }
 }

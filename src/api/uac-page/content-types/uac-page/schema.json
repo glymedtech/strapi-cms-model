@@ -1,6 +1,6 @@
 {
-  "kind": "collectionType",
-  "collectionName": "uac_pages",
+  "kind": "singleType",
+  "collectionName": "uac_page",
   "info": {
     "singularName": "uac-page",
     "pluralName": "uac-pages",
@@ -34,8 +34,7 @@
     "uac_members": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::instructor-team-member.instructor-team-member",
-      "mappedBy": "uac_page"
+      "target": "api::instructor-team-member.instructor-team-member"
     },
     "aboutUACTitle": {
       "type": "text"
@@ -62,8 +61,7 @@
     "uac_achievements": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::uac-achievement.uac-achievement",
-      "mappedBy": "uac_page"
+      "target": "api::uac-achievement.uac-achievement"
     },
     "portalId": {
       "type": "string",

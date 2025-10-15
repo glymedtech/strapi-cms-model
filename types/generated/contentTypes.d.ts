@@ -659,7 +659,6 @@ export interface ApiInstructorTeamMemberInstructorTeamMember
     thumbnail: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
     title: Schema.Attribute.Component<'shared.text-with-color', false> &
       Schema.Attribute.Required;
-    uac_page: Schema.Attribute.Relation<'manyToOne', 'api::uac-page.uac-page'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -691,15 +690,14 @@ export interface ApiUacAchievementUacAchievement
     publishedAt: Schema.Attribute.DateTime;
     title: Schema.Attribute.Component<'shared.text-with-color', false> &
       Schema.Attribute.Required;
-    uac_page: Schema.Attribute.Relation<'manyToOne', 'api::uac-page.uac-page'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
   };
 }
 
-export interface ApiUacPageUacPage extends Struct.CollectionTypeSchema {
-  collectionName: 'uac_pages';
+export interface ApiUacPageUacPage extends Struct.SingleTypeSchema {
+  collectionName: 'uac_page';
   info: {
     displayName: 'UACPage';
     pluralName: 'uac-pages';

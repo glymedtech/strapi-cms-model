@@ -1,0 +1,81 @@
+{
+  "kind": "collectionType",
+  "collectionName": "uac_pages",
+  "info": {
+    "singularName": "uac-page",
+    "pluralName": "uac-pages",
+    "displayName": "UACPage"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "banner": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::banner.banner"
+    },
+    "title": {
+      "type": "string",
+      "required": true,
+      "unique": false
+    },
+    "description": {
+      "type": "text"
+    },
+    "joinUACTitle": {
+      "type": "string",
+      "required": true
+    },
+    "joinUACDescription": {
+      "type": "text"
+    },
+    "uac_members": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::instructor-team-member.instructor-team-member",
+      "mappedBy": "uac_page"
+    },
+    "aboutUACTitle": {
+      "type": "text"
+    },
+    "aboutUACDescription": {
+      "type": "text"
+    },
+    "aboutUACImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "aboutUACImageSmall": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "uac_achievements": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::uac-achievement.uac-achievement",
+      "mappedBy": "uac_page"
+    },
+    "portalId": {
+      "type": "string",
+      "required": true
+    },
+    "formId": {
+      "type": "string",
+      "required": true
+    },
+    "buttonLabel": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

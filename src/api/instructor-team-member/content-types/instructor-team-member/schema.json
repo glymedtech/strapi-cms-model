@@ -1,0 +1,99 @@
+{
+  "kind": "collectionType",
+  "collectionName": "instructor_team_members",
+  "info": {
+    "singularName": "instructor-team-member",
+    "pluralName": "instructor-team-members",
+    "displayName": "Instructor/TeamMember"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "teamMemberId": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "firstName": {
+      "type": "string",
+      "required": true
+    },
+    "lastName": {
+      "type": "string",
+      "required": false
+    },
+    "nameColor": {
+      "type": "customField",
+      "customField": "plugin::color-picker.color",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+    },
+    "email": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "emailColor": {
+      "type": "customField",
+      "customField": "plugin::color-picker.color",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+    },
+    "thumbnail": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "cardTitle": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false
+    },
+    "title": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false,
+      "required": true
+    },
+    "bio": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false,
+      "required": true
+    },
+    "licenses": {
+      "type": "component",
+      "component": "shared.list",
+      "repeatable": true
+    },
+    "specialities": {
+      "type": "component",
+      "component": "shared.list",
+      "repeatable": true
+    },
+    "territories": {
+      "type": "component",
+      "component": "shared.list",
+      "repeatable": true
+    },
+    "role": {
+      "type": "component",
+      "component": "shared.list",
+      "repeatable": true
+    },
+    "regions": {
+      "type": "component",
+      "component": "shared.list",
+      "repeatable": true
+    },
+    "uac_page": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::uac-page.uac-page",
+      "inversedBy": "uac_members"
+    }
+  }
+}

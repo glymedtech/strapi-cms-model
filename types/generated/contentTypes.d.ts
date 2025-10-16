@@ -614,6 +614,194 @@ export interface ApiHomeHome extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiResourceCardResourceCard
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'resource_cards';
+  info: {
+    displayName: 'Resource Card';
+    pluralName: 'resource-cards';
+    singularName: 'resource-card';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    downloadFile: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::resource-card.resource-card'
+    >;
+    msdsFile: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    pipFile: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    resource_section: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::resource-section.resource-section'
+    >;
+    SKU: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    title: Schema.Attribute.Component<'shared.text-with-color', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiResourcePageResourcePage extends Struct.SingleTypeSchema {
+  collectionName: 'resource_pages';
+  info: {
+    displayName: 'Resource Page';
+    pluralName: 'resource-pages';
+    singularName: 'resource-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    banner: Schema.Attribute.Relation<'oneToOne', 'api::banner.banner'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    guestUserMessageSubtitle: Schema.Attribute.Component<
+      'shared.text-with-color',
+      true
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    guestUserMessageTitle: Schema.Attribute.Component<
+      'shared.text-with-color',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::resource-page.resource-page'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    resource_sections: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::resource-section.resource-section'
+    >;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiResourceSectionResourceSection
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'resource_sections';
+  info: {
+    displayName: 'Resource Section';
+    pluralName: 'resource-sections';
+    singularName: 'resource-section';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    heading: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::resource-section.resource-section'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    resource_cards: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::resource-card.resource-card'
+    >;
+    title: Schema.Attribute.Component<'shared.text-with-color', false> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -1126,6 +1314,9 @@ declare module '@strapi/strapi' {
       'api::banner.banner': ApiBannerBanner;
       'api::feature-page.feature-page': ApiFeaturePageFeaturePage;
       'api::home.home': ApiHomeHome;
+      'api::resource-card.resource-card': ApiResourceCardResourceCard;
+      'api::resource-page.resource-page': ApiResourcePageResourcePage;
+      'api::resource-section.resource-section': ApiResourceSectionResourceSection;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

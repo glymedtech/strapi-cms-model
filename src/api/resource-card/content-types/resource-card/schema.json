@@ -16,14 +16,14 @@
   },
   "attributes": {
     "title": {
-      "type": "component",
+      "type": "string",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "component": "shared.text-with-color",
-      "repeatable": false
+      "required": true,
+      "unique": true
     },
     "SKU": {
       "type": "string",

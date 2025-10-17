@@ -782,7 +782,9 @@ export interface ApiResourceCardResourceCard
           localized: false;
         };
       }>;
-    title: Schema.Attribute.Component<'shared.text-with-color', false> &
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;

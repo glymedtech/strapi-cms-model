@@ -822,7 +822,7 @@ export interface ApiResourcePageResourcePage extends Struct.SingleTypeSchema {
       }>;
     guestUserMessageSubtitle: Schema.Attribute.Component<
       'shared.text-with-color',
-      true
+      false
     > &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{

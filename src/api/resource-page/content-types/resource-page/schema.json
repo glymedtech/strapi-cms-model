@@ -56,7 +56,7 @@
         }
       },
       "component": "shared.text-with-color",
-      "repeatable": true,
+      "repeatable": false,
       "required": true
     },
     "resource_sections": {

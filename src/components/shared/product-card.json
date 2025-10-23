@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_shared_product_cards",
+  "info": {
+    "displayName": "ProductCard"
+  },
+  "options": {},
+  "attributes": {
+    "productImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string",
+      "required": true
+    },
+    "buttonText": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,127 @@
+{
+  "collectionName": "components_shared_banners",
+  "info": {
+    "displayName": "Banner"
+  },
+  "options": {},
+  "attributes": {
+    "pageType": {
+      "type": "string",
+      "required": true
+    },
+    "alignmentDesktop": {
+      "type": "enumeration",
+      "required": true,
+      "default": "left",
+      "enum": [
+        "left",
+        "right",
+        "center"
+      ]
+    },
+    "alignmentMobile": {
+      "type": "enumeration",
+      "required": true,
+      "default": "top",
+      "enum": [
+        "top",
+        "center",
+        "bottom"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "isRegularTitle": {
+      "type": "boolean",
+      "required": true,
+      "default": true
+    },
+    "subTitle": {
+      "type": "string"
+    },
+    "subTitleFontSizeDesktop": {
+      "type": "integer",
+      "default": 18
+    },
+    "ctaText": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false
+    },
+    "buttonText": {
+      "type": "string"
+    },
+    "buttonColor": {
+      "type": "customField",
+      "customField": "plugin::color-picker.color",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+    },
+    "buttonColorOnHover": {
+      "type": "customField",
+      "customField": "plugin::color-picker.color",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+    },
+    "buttonTextColor": {
+      "type": "customField",
+      "customField": "plugin::color-picker.color",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+    },
+    "buttonTextColorOnHover": {
+      "type": "customField",
+      "customField": "plugin::color-picker.color",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+    },
+    "buttonLink": {
+      "type": "string"
+    },
+    "isExternalLink": {
+      "type": "boolean",
+      "default": false
+    },
+    "startDate": {
+      "type": "datetime"
+    },
+    "endDate": {
+      "type": "datetime"
+    },
+    "mobile_375": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "mobile_480": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "tablet_768": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "laptop_1024": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "desktop_1440": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  },
+  "config": {}
+}

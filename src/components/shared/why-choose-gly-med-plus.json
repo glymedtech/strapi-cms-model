@@ -1,0 +1,84 @@
+{
+  "collectionName": "components_shared_why_choose_gly_med_pluses",
+  "info": {
+    "displayName": "whyChooseGlyMedPlus"
+  },
+  "options": {},
+  "attributes": {
+    "sliderName": {
+      "type": "string",
+      "required": true
+    },
+    "buttonAlignment": {
+      "type": "enumeration",
+      "required": true,
+      "default": "left",
+      "enum": [
+        "left",
+        "center",
+        "right"
+      ]
+    },
+    "textAlignment": {
+      "type": "enumeration",
+      "required": true,
+      "default": "right",
+      "enum": [
+        "left",
+        "center",
+        "right"
+      ]
+    },
+    "title": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false
+    },
+    "description": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false
+    },
+    "buttonText": {
+      "type": "string"
+    },
+    "linkURL": {
+      "type": "string"
+    },
+    "isExternalLink": {
+      "type": "boolean",
+      "required": false,
+      "default": false
+    },
+    "desktop": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "desktop2X": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "portrait": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "portrait2X": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  },
+  "config": {}
+}

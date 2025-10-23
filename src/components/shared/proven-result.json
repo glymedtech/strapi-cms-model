@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_shared_proven_results",
+  "info": {
+    "displayName": "ProvenResult",
+    "icon": "sun"
+  },
+  "options": {},
+  "attributes": {
+    "resultImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "before": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false,
+      "required": true
+    },
+    "after": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false,
+      "required": true
+    }
+  },
+  "config": {}
+}

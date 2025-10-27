@@ -383,56 +383,168 @@ export interface ApiBannerBanner extends Struct.CollectionTypeSchema {
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
     alignmentDesktop: Schema.Attribute.Enumeration<
       ['left', 'right', 'center']
     > &
       Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
       Schema.Attribute.DefaultTo<'left'>;
     alignmentMobile: Schema.Attribute.Enumeration<['top', 'center', 'bottom']> &
       Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
       Schema.Attribute.DefaultTo<'top'>;
     buttonColor: Schema.Attribute.String &
-      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+      Schema.Attribute.CustomField<'plugin::color-picker.color'> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     buttonColorOnHover: Schema.Attribute.String &
-      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
-    buttonLink: Schema.Attribute.String;
-    buttonText: Schema.Attribute.String;
+      Schema.Attribute.CustomField<'plugin::color-picker.color'> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    buttonLink: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    buttonText: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     buttonTextColor: Schema.Attribute.String &
-      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+      Schema.Attribute.CustomField<'plugin::color-picker.color'> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     buttonTextColorOnHover: Schema.Attribute.String &
-      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+      Schema.Attribute.CustomField<'plugin::color-picker.color'> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    ctaText: Schema.Attribute.Component<'shared.text-with-color', false>;
-    desktop_1440: Schema.Attribute.Media<'images'>;
-    endDate: Schema.Attribute.DateTime;
+    ctaText: Schema.Attribute.Component<'shared.text-with-color', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    desktop_1440: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    endDate: Schema.Attribute.DateTime &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     homes: Schema.Attribute.Relation<'manyToMany', 'api::home.home'>;
     isExternalLink: Schema.Attribute.Boolean &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
       Schema.Attribute.DefaultTo<false>;
     isRegularTitle: Schema.Attribute.Boolean &
       Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
       Schema.Attribute.DefaultTo<true>;
-    laptop_1024: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::banner.banner'
-    > &
-      Schema.Attribute.Private;
-    mobile_375: Schema.Attribute.Media<'images' | 'files'>;
-    mobile_480: Schema.Attribute.Media<'images'>;
+    laptop_1024: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::banner.banner'>;
+    mobile_375: Schema.Attribute.Media<'images' | 'files'> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    mobile_480: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     pageType: Schema.Attribute.String &
       Schema.Attribute.Required &
-      Schema.Attribute.Unique;
+      Schema.Attribute.Unique &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     publishedAt: Schema.Attribute.DateTime;
-    startDate: Schema.Attribute.DateTime;
-    subTitle: Schema.Attribute.Component<'shared.text-with-color', false>;
+    startDate: Schema.Attribute.DateTime &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    subTitle: Schema.Attribute.Component<'shared.text-with-color', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     subTitleFontSizeDesktop: Schema.Attribute.Integer &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
       Schema.Attribute.DefaultTo<18>;
-    tablet_768: Schema.Attribute.Media<'images'>;
-    title: Schema.Attribute.Component<'shared.text-with-color', false>;
+    tablet_768: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    title: Schema.Attribute.Component<'shared.text-with-color', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -682,6 +794,137 @@ export interface ApiHomeHome extends Struct.CollectionTypeSchema {
       false
     > &
       Schema.Attribute.Required;
+  };
+}
+
+export interface ApiInstructorTeamMemberInstructorTeamMember
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'instructor_team_members';
+  info: {
+    displayName: 'Instructor/TeamMember';
+    pluralName: 'instructor-team-members';
+    singularName: 'instructor-team-member';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    bio: Schema.Attribute.Component<'shared.text-with-color', false> &
+      Schema.Attribute.Required;
+    cardTitle: Schema.Attribute.Component<'shared.text-with-color', false>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    email: Schema.Attribute.String;
+    emailColor: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+    firstName: Schema.Attribute.String & Schema.Attribute.Required;
+    lastName: Schema.Attribute.String;
+    licenses: Schema.Attribute.Component<'shared.list', true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::instructor-team-member.instructor-team-member'
+    > &
+      Schema.Attribute.Private;
+    nameColor: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+    publishedAt: Schema.Attribute.DateTime;
+    regions: Schema.Attribute.Component<'shared.list', true>;
+    role: Schema.Attribute.Component<'shared.list', true>;
+    specialities: Schema.Attribute.Component<'shared.list', true>;
+    teamMemberId: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    territories: Schema.Attribute.Component<'shared.list', true>;
+    thumbnail: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    title: Schema.Attribute.Component<'shared.text-with-color', false> &
+      Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiUacAchievementUacAchievement
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'uac_achievements';
+  info: {
+    displayName: 'UACAchievement';
+    pluralName: 'uac-achievements';
+    singularName: 'uac-achievement';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    iconImage: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::uac-achievement.uac-achievement'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.Component<'shared.text-with-color', false> &
+      Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiUacPageUacPage extends Struct.SingleTypeSchema {
+  collectionName: 'uac_page';
+  info: {
+    displayName: 'UACPage';
+    pluralName: 'uac-pages';
+    singularName: 'uac-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    aboutUACDescription: Schema.Attribute.Text;
+    aboutUACImage: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    aboutUACImageSmall: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.Required;
+    aboutUACTitle: Schema.Attribute.Text;
+    banner: Schema.Attribute.Relation<'oneToOne', 'api::banner.banner'>;
+    buttonLabel: Schema.Attribute.String & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    formId: Schema.Attribute.String & Schema.Attribute.Required;
+    joinUACDescription: Schema.Attribute.Text;
+    joinUACTitle: Schema.Attribute.String & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::uac-page.uac-page'
+    > &
+      Schema.Attribute.Private;
+    portalId: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    uac_achievements: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::uac-achievement.uac-achievement'
+    >;
+    uac_members: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::instructor-team-member.instructor-team-member'
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
   };
 }
 
@@ -1199,6 +1442,9 @@ declare module '@strapi/strapi' {
       'api::blog.blog': ApiBlogBlog;
       'api::feature-page.feature-page': ApiFeaturePageFeaturePage;
       'api::home.home': ApiHomeHome;
+      'api::instructor-team-member.instructor-team-member': ApiInstructorTeamMemberInstructorTeamMember;
+      'api::uac-achievement.uac-achievement': ApiUacAchievementUacAchievement;
+      'api::uac-page.uac-page': ApiUacPageUacPage;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

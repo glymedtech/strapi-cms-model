@@ -24,6 +24,11 @@
       "component": "shared.text-with-color",
       "repeatable": false,
       "required": true
+    },
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
     }
   }
 }

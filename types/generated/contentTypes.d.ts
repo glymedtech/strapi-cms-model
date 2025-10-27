@@ -744,9 +744,7 @@ export interface ApiInstructorTeamMemberInstructorTeamMember
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    email: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.Unique;
+    email: Schema.Attribute.String;
     emailColor: Schema.Attribute.String &
       Schema.Attribute.CustomField<'plugin::color-picker.color'>;
     firstName: Schema.Attribute.String & Schema.Attribute.Required;
@@ -799,6 +797,9 @@ export interface ApiUacAchievementUacAchievement
       'api::uac-achievement.uac-achievement'
     > &
       Schema.Attribute.Private;
+    name: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
     publishedAt: Schema.Attribute.DateTime;
     title: Schema.Attribute.Component<'shared.text-with-color', false> &
       Schema.Attribute.Required;

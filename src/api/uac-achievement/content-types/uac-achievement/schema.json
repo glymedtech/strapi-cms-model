@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "uac_achievements",
+  "info": {
+    "singularName": "uac-achievement",
+    "pluralName": "uac-achievements",
+    "displayName": "UACAchievement"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "iconImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "title": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false,
+      "required": true
+    },
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    }
+  }
+}

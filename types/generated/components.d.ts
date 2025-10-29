@@ -56,6 +56,18 @@ export interface SharedList extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedMetaTag extends Struct.ComponentSchema {
+  collectionName: 'components_shared_meta_tags';
+  info: {
+    displayName: 'MetaTag';
+  };
+  attributes: {
+    description: Schema.Attribute.String & Schema.Attribute.Required;
+    image: Schema.Attribute.Media<'images'>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface SharedProductCard extends Struct.ComponentSchema {
   collectionName: 'components_shared_product_cards';
   info: {
@@ -140,6 +152,7 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'shared.banner': SharedBanner;
       'shared.list': SharedList;
+      'shared.meta-tag': SharedMetaTag;
       'shared.product-card': SharedProductCard;
       'shared.proven-result': SharedProvenResult;
       'shared.testimonial': SharedTestimonial;

@@ -969,6 +969,67 @@ export interface ApiWebinarPageWebinarPage extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiWebinarWebinar extends Struct.CollectionTypeSchema {
+  collectionName: 'webinars';
+  info: {
+    displayName: 'Webinar';
+    pluralName: 'webinars';
+    singularName: 'webinar';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    active: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<true>;
+    benefits: Schema.Attribute.Component<'shared.list', true>;
+    cocktail: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    concerns: Schema.Attribute.Component<'shared.list', true>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Component<'shared.text-with-color', false> &
+      Schema.Attribute.Required;
+    featuredProductsSkuList: Schema.Attribute.Component<'shared.list', true>;
+    featuredProductsTitle: Schema.Attribute.Component<
+      'shared.text-with-color',
+      false
+    >;
+    isPinned: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<false>;
+    level: Schema.Attribute.String & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::webinar.webinar'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.Component<'shared.text-with-color', false> &
+      Schema.Attribute.Required;
+    productCategory: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    role: Schema.Attribute.JSON &
+      Schema.Attribute.Required &
+      Schema.Attribute.CustomField<
+        'plugin::multi-select.multi-select',
+        ['pro', 'retail', 'school', 'web']
+      > &
+      Schema.Attribute.DefaultTo<'[]'>;
+    serviceCategory: Schema.Attribute.String & Schema.Attribute.Required;
+    skinType: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    video: Schema.Attribute.Media<'videos'>;
+    videoPoster: Schema.Attribute.Media<'images'>;
+    webinarId: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -1487,6 +1548,7 @@ declare module '@strapi/strapi' {
       'api::uac-achievement.uac-achievement': ApiUacAchievementUacAchievement;
       'api::uac-page.uac-page': ApiUacPageUacPage;
       'api::webinar-page.webinar-page': ApiWebinarPageWebinarPage;
+      'api::webinar.webinar': ApiWebinarWebinar;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

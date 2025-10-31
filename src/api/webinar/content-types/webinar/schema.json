@@ -53,6 +53,9 @@
         "videos"
       ]
     },
+    "videoURL": {
+      "type": "string"
+    },
     "videoPoster": {
       "type": "media",
       "multiple": false,

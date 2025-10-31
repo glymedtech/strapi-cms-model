@@ -1024,6 +1024,7 @@ export interface ApiWebinarWebinar extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     video: Schema.Attribute.Media<'videos'>;
     videoPoster: Schema.Attribute.Media<'images'>;
+    videoURL: Schema.Attribute.String;
     webinarId: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;

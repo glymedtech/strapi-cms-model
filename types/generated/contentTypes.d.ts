@@ -1008,7 +1008,7 @@ export interface ApiWebinarWebinar extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     name: Schema.Attribute.Component<'shared.text-with-color', false> &
       Schema.Attribute.Required;
-    productCategory: Schema.Attribute.String;
+    productCategory: Schema.Attribute.Component<'shared.list', true>;
     publishedAt: Schema.Attribute.DateTime;
     role: Schema.Attribute.JSON &
       Schema.Attribute.Required &
@@ -1018,7 +1018,7 @@ export interface ApiWebinarWebinar extends Struct.CollectionTypeSchema {
       > &
       Schema.Attribute.DefaultTo<'[]'>;
     serviceCategory: Schema.Attribute.String & Schema.Attribute.Required;
-    skinType: Schema.Attribute.String;
+    skinType: Schema.Attribute.Component<'shared.list', true>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

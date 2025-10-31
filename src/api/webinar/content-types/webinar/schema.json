@@ -85,10 +85,14 @@
       "repeatable": true
     },
     "productCategory": {
-      "type": "string"
+      "type": "component",
+      "component": "shared.list",
+      "repeatable": true
     },
     "skinType": {
-      "type": "string"
+      "type": "component",
+      "component": "shared.list",
+      "repeatable": true
     },
     "role": {
       "type": "customField",

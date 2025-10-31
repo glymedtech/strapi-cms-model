@@ -989,6 +989,7 @@ export interface ApiWebinarWebinar extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    date: Schema.Attribute.DateTime & Schema.Attribute.Required;
     description: Schema.Attribute.Component<'shared.text-with-color', false> &
       Schema.Attribute.Required;
     featuredProductsSkuList: Schema.Attribute.Component<'shared.list', true>;

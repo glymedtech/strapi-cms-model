@@ -108,6 +108,10 @@
         "web"
       ],
       "required": true
+    },
+    "date": {
+      "type": "datetime",
+      "required": true
     }
   }
 }

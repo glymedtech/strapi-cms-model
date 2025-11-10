@@ -202,6 +202,12 @@
         "Web"
       ],
       "required": true
+    },
+    "education_regimen": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::education-regimen.education-regimen",
+      "mappedBy": "regimens"
     }
   }
 }

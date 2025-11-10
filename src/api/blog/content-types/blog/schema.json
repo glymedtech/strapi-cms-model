@@ -55,6 +55,12 @@
       "type": "string",
       "required": true,
       "unique": true
+    },
+    "education_resources": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::education-resource.education-resource",
+      "mappedBy": "blogs"
     }
   }
 }

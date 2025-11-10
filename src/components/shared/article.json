@@ -1,0 +1,35 @@
+{
+  "collectionName": "components_shared_articles",
+  "info": {
+    "displayName": "Article",
+    "icon": "book"
+  },
+  "options": {},
+  "attributes": {
+    "articleId": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "title": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false,
+      "required": false
+    },
+    "description": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false
+    },
+    "images": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  },
+  "config": {}
+}

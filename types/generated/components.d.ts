@@ -1,5 +1,21 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface SharedArticle extends Struct.ComponentSchema {
+  collectionName: 'components_shared_articles';
+  info: {
+    displayName: 'Article';
+    icon: 'book';
+  };
+  attributes: {
+    articleId: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    description: Schema.Attribute.Component<'shared.text-with-color', false>;
+    images: Schema.Attribute.Media<'images'>;
+    title: Schema.Attribute.Component<'shared.text-with-color', false>;
+  };
+}
+
 export interface SharedBanner extends Struct.ComponentSchema {
   collectionName: 'components_shared_banners';
   info: {
@@ -150,6 +166,7 @@ export interface SharedWhyChooseGlyMedPlus extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'shared.article': SharedArticle;
       'shared.banner': SharedBanner;
       'shared.list': SharedList;
       'shared.meta-tag': SharedMetaTag;

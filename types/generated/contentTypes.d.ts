@@ -598,6 +598,10 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    education_resources: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::education-resource.education-resource'
+    >;
     header: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
@@ -616,6 +620,244 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
     title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiEducationOverviewEducationOverview
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'education_overviews';
+  info: {
+    displayName: 'EducationOverview';
+    pluralName: 'education-overviews';
+    singularName: 'education-overview';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::education-overview.education-overview'
+    > &
+      Schema.Attribute.Private;
+    overview: Schema.Attribute.Component<'shared.article', false>;
+    publishedAt: Schema.Attribute.DateTime;
+    subtopicDescription: Schema.Attribute.Component<
+      'shared.text-with-color',
+      false
+    >;
+    subtopics: Schema.Attribute.Component<'shared.article', true>;
+    topicId: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiEducationProtocolEducationProtocol
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'education_protocols';
+  info: {
+    displayName: 'EducationProtocol';
+    pluralName: 'education-protocols';
+    singularName: 'education-protocol';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Component<'shared.text-with-color', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::education-protocol.education-protocol'
+    >;
+    protocols: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::protocol.protocol'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.Component<'shared.text-with-color', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    topicId: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiEducationRegimenEducationRegimen
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'education_regimens';
+  info: {
+    displayName: 'EducationRegimen';
+    pluralName: 'education-regimens';
+    singularName: 'education-regimen';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Component<'shared.text-with-color', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::education-regimen.education-regimen'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    regimens: Schema.Attribute.Relation<'manyToMany', 'api::regimen.regimen'>;
+    title: Schema.Attribute.Component<'shared.text-with-color', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    topicId: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiEducationResourceEducationResource
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'education_resources';
+  info: {
+    displayName: 'EducationResource';
+    pluralName: 'education-resources';
+    singularName: 'education-resource';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    blogs: Schema.Attribute.Relation<'manyToMany', 'api::blog.blog'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    infographics: Schema.Attribute.Media<'images', true>;
+    infographicTitle: Schema.Attribute.Component<
+      'shared.text-with-color',
+      false
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::education-resource.education-resource'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    resourceTitle: Schema.Attribute.Component<'shared.text-with-color', false>;
+    topicId: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    webinars: Schema.Attribute.Relation<'manyToMany', 'api::webinar.webinar'>;
+    webinarTitle: Schema.Attribute.Component<'shared.text-with-color', false>;
+  };
+}
+
+export interface ApiEducationTopicEducationTopic
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'education_topics';
+  info: {
+    displayName: 'EducationTopic';
+    pluralName: 'education-topics';
+    singularName: 'education-topic';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    education_protocol: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::education-protocol.education-protocol'
+    >;
+    education_regiman: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::education-regimen.education-regimen'
+    >;
+    education_resource: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::education-resource.education-resource'
+    >;
+    heroImage: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    imageThumbnail: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::education-topic.education-topic'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    overview: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::education-overview.education-overview'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    shortDescription: Schema.Attribute.Text & Schema.Attribute.Required;
+    topicId: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -963,6 +1205,10 @@ export interface ApiProtocolProtocol extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
+    education_protocols: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::education-protocol.education-protocol'
+    >;
     featuredSkuList: Schema.Attribute.Component<'shared.list', true> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -1123,6 +1369,10 @@ export interface ApiRegimenRegimen extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
+    education_regimen: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::education-regimen.education-regimen'
+    >;
     featuredSkuList: Schema.Attribute.Component<'shared.list', true> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -1215,6 +1465,42 @@ export interface ApiRegimenRegimen extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiSchoolEducationSchoolEducation
+  extends Struct.SingleTypeSchema {
+  collectionName: 'school_educations';
+  info: {
+    displayName: 'SchoolEducation';
+    pluralName: 'school-educations';
+    singularName: 'school-education';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: false;
+    };
+  };
+  attributes: {
+    banner: Schema.Attribute.Relation<'oneToOne', 'api::banner.banner'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    educationDetail: Schema.Attribute.Blocks & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::school-education.school-education'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1367,6 +1653,10 @@ export interface ApiWebinarWebinar extends Struct.CollectionTypeSchema {
     date: Schema.Attribute.DateTime & Schema.Attribute.Required;
     description: Schema.Attribute.Component<'shared.text-with-color', false> &
       Schema.Attribute.Required;
+    education_resources: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::education-resource.education-resource'
+    >;
     featuredProductsSkuList: Schema.Attribute.Component<'shared.list', true>;
     featuredProductsTitle: Schema.Attribute.Component<
       'shared.text-with-color',
@@ -1919,12 +2209,18 @@ declare module '@strapi/strapi' {
       'api::banner.banner': ApiBannerBanner;
       'api::blog-page.blog-page': ApiBlogPageBlogPage;
       'api::blog.blog': ApiBlogBlog;
+      'api::education-overview.education-overview': ApiEducationOverviewEducationOverview;
+      'api::education-protocol.education-protocol': ApiEducationProtocolEducationProtocol;
+      'api::education-regimen.education-regimen': ApiEducationRegimenEducationRegimen;
+      'api::education-resource.education-resource': ApiEducationResourceEducationResource;
+      'api::education-topic.education-topic': ApiEducationTopicEducationTopic;
       'api::feature-page.feature-page': ApiFeaturePageFeaturePage;
       'api::home.home': ApiHomeHome;
       'api::instructor-team-member.instructor-team-member': ApiInstructorTeamMemberInstructorTeamMember;
       'api::protocol-page.protocol-page': ApiProtocolPageProtocolPage;
       'api::protocol.protocol': ApiProtocolProtocol;
       'api::regimen.regimen': ApiRegimenRegimen;
+      'api::school-education.school-education': ApiSchoolEducationSchoolEducation;
       'api::uac-achievement.uac-achievement': ApiUacAchievementUacAchievement;
       'api::uac-page.uac-page': ApiUacPageUacPage;
       'api::webinar-page.webinar-page': ApiWebinarPageWebinarPage;

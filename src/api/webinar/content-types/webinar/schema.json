@@ -112,6 +112,12 @@
     "date": {
       "type": "datetime",
       "required": true
+    },
+    "education_resources": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::education-resource.education-resource",
+      "mappedBy": "webinars"
     }
   }
 }

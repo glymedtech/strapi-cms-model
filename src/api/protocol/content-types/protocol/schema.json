@@ -207,6 +207,12 @@
         "School"
       ],
       "required": true
+    },
+    "education_protocols": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::education-protocol.education-protocol",
+      "mappedBy": "protocols"
     }
   }
 }

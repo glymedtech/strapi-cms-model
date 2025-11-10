@@ -1482,16 +1482,15 @@ export interface ApiSchoolEducationSchoolEducation
   options: {
     draftAndPublish: true;
   };
-  pluginOptions: {
-    i18n: {
-      localized: false;
-    };
-  };
   attributes: {
     banner: Schema.Attribute.Relation<'oneToOne', 'api::banner.banner'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    education_topics: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::education-topic.education-topic'
+    >;
     educationDetail: Schema.Attribute.Blocks & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<

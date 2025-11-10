@@ -9,24 +9,25 @@
   "options": {
     "draftAndPublish": true
   },
-  "pluginOptions": {
-    "i18n": {
-      "localized": false
-    }
-  },
+  "pluginOptions": {},
   "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
     "banner": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::banner.banner"
     },
-    "title": {
-      "type": "string",
-      "required": true
-    },
     "educationDetail": {
       "type": "blocks",
       "required": true
+    },
+    "education_topics": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::education-topic.education-topic"
     }
   }
 }

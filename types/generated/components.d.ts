@@ -11,7 +11,7 @@ export interface SharedArticle extends Struct.ComponentSchema {
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
     description: Schema.Attribute.Component<'shared.text-with-color', false>;
-    images: Schema.Attribute.Media<'images'>;
+    images: Schema.Attribute.Media<'images', true>;
     title: Schema.Attribute.Component<'shared.text-with-color', false>;
   };
 }

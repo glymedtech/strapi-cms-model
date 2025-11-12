@@ -831,7 +831,7 @@ export interface ApiEducationTopicEducationTopic
       'oneToOne',
       'api::education-protocol.education-protocol'
     >;
-    education_regiman: Schema.Attribute.Relation<
+    education_regimen: Schema.Attribute.Relation<
       'oneToOne',
       'api::education-regimen.education-regimen'
     >;

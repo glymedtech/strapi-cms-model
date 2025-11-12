@@ -663,6 +663,38 @@ export interface ApiEducationOverviewEducationOverview
   };
 }
 
+export interface ApiEducationPageEducationPage extends Struct.SingleTypeSchema {
+  collectionName: 'education_pages';
+  info: {
+    displayName: 'EducationPage';
+    pluralName: 'education-pages';
+    singularName: 'education-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    banner: Schema.Attribute.Relation<'oneToOne', 'api::banner.banner'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Component<'shared.text-with-color', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::education-page.education-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiEducationProtocolEducationProtocol
   extends Struct.CollectionTypeSchema {
   collectionName: 'education_protocols';
@@ -809,6 +841,48 @@ export interface ApiEducationResourceEducationResource
       Schema.Attribute.Private;
     webinars: Schema.Attribute.Relation<'manyToMany', 'api::webinar.webinar'>;
     webinarTitle: Schema.Attribute.Component<'shared.text-with-color', false>;
+  };
+}
+
+export interface ApiEducationSampleEducationSample
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'education_samples';
+  info: {
+    displayName: 'EducationSample';
+    pluralName: 'education-samples';
+    singularName: 'education-sample';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Component<'shared.text-with-color', false> &
+      Schema.Attribute.Required;
+    educationSampleId: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    infographicImage: Schema.Attribute.Media<'images'>;
+    level: Schema.Attribute.String & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::education-sample.education-sample'
+    > &
+      Schema.Attribute.Private;
+    metaTag: Schema.Attribute.Component<'shared.meta-tag', false>;
+    name: Schema.Attribute.Component<'shared.text-with-color', false> &
+      Schema.Attribute.Required;
+    previewImage: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    shortName: Schema.Attribute.Component<'shared.text-with-color', false> &
+      Schema.Attribute.Required;
+    subSections: Schema.Attribute.Component<'shared.article', true>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
   };
 }
 
@@ -2209,9 +2283,11 @@ declare module '@strapi/strapi' {
       'api::blog-page.blog-page': ApiBlogPageBlogPage;
       'api::blog.blog': ApiBlogBlog;
       'api::education-overview.education-overview': ApiEducationOverviewEducationOverview;
+      'api::education-page.education-page': ApiEducationPageEducationPage;
       'api::education-protocol.education-protocol': ApiEducationProtocolEducationProtocol;
       'api::education-regimen.education-regimen': ApiEducationRegimenEducationRegimen;
       'api::education-resource.education-resource': ApiEducationResourceEducationResource;
+      'api::education-sample.education-sample': ApiEducationSampleEducationSample;
       'api::education-topic.education-topic': ApiEducationTopicEducationTopic;
       'api::feature-page.feature-page': ApiFeaturePageFeaturePage;
       'api::home.home': ApiHomeHome;

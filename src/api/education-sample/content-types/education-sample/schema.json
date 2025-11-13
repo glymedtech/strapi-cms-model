@@ -11,7 +11,7 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "educationSampleId": {
+    "educationId": {
       "type": "string",
       "required": true,
       "unique": true
@@ -60,7 +60,7 @@
     },
     "subSections": {
       "type": "component",
-      "component": "shared.article",
+      "component": "shared.article-with-plain-title",
       "repeatable": true
     }
   }

@@ -861,7 +861,7 @@ export interface ApiEducationSampleEducationSample
       Schema.Attribute.Private;
     description: Schema.Attribute.Component<'shared.text-with-color', false> &
       Schema.Attribute.Required;
-    educationSampleId: Schema.Attribute.String &
+    educationId: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
     infographicImage: Schema.Attribute.Media<'images'>;
@@ -879,7 +879,10 @@ export interface ApiEducationSampleEducationSample
     publishedAt: Schema.Attribute.DateTime;
     shortName: Schema.Attribute.Component<'shared.text-with-color', false> &
       Schema.Attribute.Required;
-    subSections: Schema.Attribute.Component<'shared.article', true>;
+    subSections: Schema.Attribute.Component<
+      'shared.article-with-plain-title',
+      true
+    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

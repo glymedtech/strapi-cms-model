@@ -16,6 +16,21 @@ export interface SharedArticle extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedArticleWithPlainTitle extends Struct.ComponentSchema {
+  collectionName: 'components_shared_article_with_plain_titles';
+  info: {
+    displayName: 'ArticleWithPlainTitle';
+    icon: 'file';
+  };
+  attributes: {
+    description: Schema.Attribute.Component<'shared.text-with-color', false>;
+    image: Schema.Attribute.Media<'images'>;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+  };
+}
+
 export interface SharedBanner extends Struct.ComponentSchema {
   collectionName: 'components_shared_banners';
   info: {
@@ -167,6 +182,7 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'shared.article': SharedArticle;
+      'shared.article-with-plain-title': SharedArticleWithPlainTitle;
       'shared.banner': SharedBanner;
       'shared.list': SharedList;
       'shared.meta-tag': SharedMetaTag;

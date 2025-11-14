@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "product_menus",
+  "info": {
+    "singularName": "product-menu",
+    "pluralName": "product-menus",
+    "displayName": "ProductMenu"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "media": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "filter": {
+      "type": "string",
+      "required": false
+    }
+  }
+}

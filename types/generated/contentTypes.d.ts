@@ -1165,6 +1165,74 @@ export interface ApiInstructorTeamMemberInstructorTeamMember
   };
 }
 
+export interface ApiProductMenuProductMenu extends Struct.CollectionTypeSchema {
+  collectionName: 'product_menus';
+  info: {
+    displayName: 'ProductMenu';
+    pluralName: 'product-menus';
+    singularName: 'product-menu';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    filter: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::product-menu.product-menu'
+    > &
+      Schema.Attribute.Private;
+    media: Schema.Attribute.Media<'images'>;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiProductPageProductPage extends Struct.SingleTypeSchema {
+  collectionName: 'product_pages';
+  info: {
+    displayName: 'ProductPage';
+    pluralName: 'product-pages';
+    singularName: 'product-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    banner: Schema.Attribute.Relation<'oneToOne', 'api::banner.banner'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::product-page.product-page'
+    > &
+      Schema.Attribute.Private;
+    product_menus: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::product-menu.product-menu'
+    >;
+    productRubricPdf: Schema.Attribute.Media<'images' | 'files'>;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiProtocolPageProtocolPage extends Struct.SingleTypeSchema {
   collectionName: 'protocol_pages';
   info: {
@@ -2295,6 +2363,8 @@ declare module '@strapi/strapi' {
       'api::feature-page.feature-page': ApiFeaturePageFeaturePage;
       'api::home.home': ApiHomeHome;
       'api::instructor-team-member.instructor-team-member': ApiInstructorTeamMemberInstructorTeamMember;
+      'api::product-menu.product-menu': ApiProductMenuProductMenu;
+      'api::product-page.product-page': ApiProductPageProductPage;
       'api::protocol-page.protocol-page': ApiProtocolPageProtocolPage;
       'api::protocol.protocol': ApiProtocolProtocol;
       'api::regimen.regimen': ApiRegimenRegimen;

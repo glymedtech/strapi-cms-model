@@ -1,5 +1,36 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface SharedArticle extends Struct.ComponentSchema {
+  collectionName: 'components_shared_articles';
+  info: {
+    displayName: 'Article';
+    icon: 'book';
+  };
+  attributes: {
+    articleId: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    description: Schema.Attribute.Component<'shared.text-with-color', false>;
+    images: Schema.Attribute.Media<'images', true>;
+    title: Schema.Attribute.Component<'shared.text-with-color', false>;
+  };
+}
+
+export interface SharedArticleWithPlainTitle extends Struct.ComponentSchema {
+  collectionName: 'components_shared_article_with_plain_titles';
+  info: {
+    displayName: 'ArticleWithPlainTitle';
+    icon: 'file';
+  };
+  attributes: {
+    description: Schema.Attribute.Component<'shared.text-with-color', false>;
+    image: Schema.Attribute.Media<'images'>;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+  };
+}
+
 export interface SharedBanner extends Struct.ComponentSchema {
   collectionName: 'components_shared_banners';
   info: {
@@ -53,6 +84,18 @@ export interface SharedList extends Struct.ComponentSchema {
   };
   attributes: {
     text: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface SharedMetaTag extends Struct.ComponentSchema {
+  collectionName: 'components_shared_meta_tags';
+  info: {
+    displayName: 'MetaTag';
+  };
+  attributes: {
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    image: Schema.Attribute.Media<'images'>;
+    title: Schema.Attribute.Text & Schema.Attribute.Required;
   };
 }
 
@@ -138,8 +181,11 @@ export interface SharedWhyChooseGlyMedPlus extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'shared.article': SharedArticle;
+      'shared.article-with-plain-title': SharedArticleWithPlainTitle;
       'shared.banner': SharedBanner;
       'shared.list': SharedList;
+      'shared.meta-tag': SharedMetaTag;
       'shared.product-card': SharedProductCard;
       'shared.proven-result': SharedProvenResult;
       'shared.testimonial': SharedTestimonial;

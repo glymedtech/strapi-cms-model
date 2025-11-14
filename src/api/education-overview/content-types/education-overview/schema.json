@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "education_overviews",
+  "info": {
+    "singularName": "education-overview",
+    "pluralName": "education-overviews",
+    "displayName": "EducationOverview"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "topicId": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "overview": {
+      "type": "component",
+      "component": "shared.article",
+      "repeatable": false
+    },
+    "subtopicDescription": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false
+    },
+    "subtopics": {
+      "type": "component",
+      "component": "shared.article",
+      "repeatable": true
+    }
+  }
+}

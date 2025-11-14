@@ -1,0 +1,55 @@
+{
+  "kind": "collectionType",
+  "collectionName": "education_protocols",
+  "info": {
+    "singularName": "education-protocol",
+    "pluralName": "education-protocols",
+    "displayName": "EducationProtocol"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "topicId": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true,
+      "unique": true
+    },
+    "title": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "shared.text-with-color",
+      "repeatable": false
+    },
+    "description": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "shared.text-with-color",
+      "repeatable": false
+    },
+    "protocols": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::protocol.protocol",
+      "inversedBy": "education_protocols"
+    }
+  }
+}

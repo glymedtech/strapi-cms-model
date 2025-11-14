@@ -1,0 +1,123 @@
+{
+  "kind": "collectionType",
+  "collectionName": "webinars",
+  "info": {
+    "singularName": "webinar",
+    "pluralName": "webinars",
+    "displayName": "Webinar"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "webinarId": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "name": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false,
+      "required": true
+    },
+    "isPinned": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    },
+    "description": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false,
+      "required": true
+    },
+    "active": {
+      "type": "boolean",
+      "required": true,
+      "default": true
+    },
+    "serviceCategory": {
+      "type": "string",
+      "required": true
+    },
+    "level": {
+      "type": "string",
+      "required": true
+    },
+    "video": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "videos"
+      ]
+    },
+    "videoURL": {
+      "type": "string"
+    },
+    "videoPoster": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "benefits": {
+      "type": "component",
+      "component": "shared.list",
+      "repeatable": true
+    },
+    "cocktail": {
+      "type": "boolean",
+      "default": true
+    },
+    "concerns": {
+      "type": "component",
+      "component": "shared.list",
+      "repeatable": true
+    },
+    "featuredProductsTitle": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false
+    },
+    "featuredProductsSkuList": {
+      "type": "component",
+      "component": "shared.list",
+      "repeatable": true
+    },
+    "productCategory": {
+      "type": "component",
+      "component": "shared.list",
+      "repeatable": true
+    },
+    "skinType": {
+      "type": "component",
+      "component": "shared.list",
+      "repeatable": true
+    },
+    "role": {
+      "type": "customField",
+      "customField": "plugin::multi-select.multi-select",
+      "default": "[]",
+      "options": [
+        "pro",
+        "retail",
+        "school",
+        "web"
+      ],
+      "required": true
+    },
+    "date": {
+      "type": "datetime",
+      "required": true
+    },
+    "education_resources": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::education-resource.education-resource",
+      "mappedBy": "webinars"
+    }
+  }
+}

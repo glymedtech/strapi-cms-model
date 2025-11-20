@@ -1,0 +1,209 @@
+{
+  "kind": "collectionType",
+  "collectionName": "calendar_course_events",
+  "info": {
+    "singularName": "calendar-course-event",
+    "pluralName": "calendar-course-events",
+    "displayName": "Calendar Course Event"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "active": {
+      "type": "boolean",
+      "required": true,
+      "default": true
+    },
+    "title": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false,
+      "required": true
+    },
+    "courseId": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "tabType": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "HAE Events",
+        "Four Day Events",
+        "In-Person Classes",
+        "Virtual Classes"
+      ]
+    },
+    "description": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false,
+      "required": true
+    },
+    "previewImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "course",
+        "hae",
+        "multiday",
+        "In-Person",
+        "Virtual"
+      ]
+    },
+    "eventStartDate": {
+      "type": "datetime",
+      "required": true
+    },
+    "eventEndDate": {
+      "type": "datetime",
+      "required": true
+    },
+    "eventTimeZone": {
+      "type": "string",
+      "required": false
+    },
+    "registrationEndDate": {
+      "type": "date",
+      "required": true
+    },
+    "eventRegions": {
+      "type": "component",
+      "component": "shared.list",
+      "repeatable": true
+    },
+    "eventRegionsAbbreviation": {
+      "type": "component",
+      "component": "shared.list",
+      "repeatable": true
+    },
+    "featuredProductsSkuList": {
+      "type": "component",
+      "component": "shared.list",
+      "repeatable": true
+    },
+    "price": {
+      "type": "decimal",
+      "required": true,
+      "default": 0
+    },
+    "calendarSignupImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "calendarSignupText": {
+      "type": "text"
+    },
+    "instructors": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::instructor-team-member.instructor-team-member",
+      "inversedBy": "calendar_course_events"
+    },
+    "totalSeats": {
+      "type": "integer",
+      "required": true
+    },
+    "registeredSeats": {
+      "type": "integer"
+    },
+    "cancelledSeats": {
+      "type": "integer"
+    },
+    "hasOnlineRegistration": {
+      "type": "boolean",
+      "required": true,
+      "default": true
+    },
+    "hasExternalRegistration": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    },
+    "externalRegistrationURL": {
+      "type": "string"
+    },
+    "tradeShowCourse": {
+      "type": "boolean",
+      "required": false,
+      "default": false
+    },
+    "event_location": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::event-location.event-location",
+      "inversedBy": "calendar_course_event"
+    },
+    "category": {
+      "type": "string"
+    },
+    "concerns": {
+      "type": "component",
+      "component": "shared.list",
+      "repeatable": true
+    },
+    "duration": {
+      "type": "integer",
+      "required": true
+    },
+    "educationCategories": {
+      "type": "component",
+      "component": "shared.list",
+      "repeatable": true
+    },
+    "level": {
+      "type": "string"
+    },
+    "materials": {
+      "type": "component",
+      "component": "shared.list",
+      "repeatable": true
+    },
+    "ourLine": {
+      "type": "component",
+      "component": "shared.list",
+      "repeatable": true
+    },
+    "prerequisites": {
+      "type": "component",
+      "component": "shared.list",
+      "repeatable": true
+    },
+    "skinTypes": {
+      "type": "component",
+      "component": "shared.list",
+      "repeatable": true
+    },
+    "role": {
+      "type": "customField",
+      "customField": "plugin::multi-select.multi-select",
+      "default": "[]",
+      "options": [
+        "Pro",
+        "Retail",
+        "School",
+        "Web"
+      ],
+      "required": true
+    },
+    "calendar_trade_shows": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::calendar-trade-show.calendar-trade-show",
+      "mappedBy": "courses"
+    }
+  }
+}

@@ -626,6 +626,233 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiCalendarCourseEventCalendarCourseEvent
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'calendar_course_events';
+  info: {
+    displayName: 'Calendar Course Event';
+    pluralName: 'calendar-course-events';
+    singularName: 'calendar-course-event';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    active: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<true>;
+    calendar_trade_shows: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::calendar-trade-show.calendar-trade-show'
+    >;
+    calendarSignupImage: Schema.Attribute.Media<'images'>;
+    calendarSignupText: Schema.Attribute.Text;
+    cancelledSeats: Schema.Attribute.Integer;
+    category: Schema.Attribute.String;
+    concerns: Schema.Attribute.Component<'shared.list', true>;
+    courseId: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Component<'shared.text-with-color', false> &
+      Schema.Attribute.Required;
+    duration: Schema.Attribute.Integer & Schema.Attribute.Required;
+    educationCategories: Schema.Attribute.Component<'shared.list', true>;
+    event_location: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::event-location.event-location'
+    >;
+    eventEndDate: Schema.Attribute.DateTime & Schema.Attribute.Required;
+    eventRegions: Schema.Attribute.Component<'shared.list', true>;
+    eventRegionsAbbreviation: Schema.Attribute.Component<'shared.list', true>;
+    eventStartDate: Schema.Attribute.DateTime & Schema.Attribute.Required;
+    eventTimeZone: Schema.Attribute.String;
+    externalRegistrationURL: Schema.Attribute.String;
+    featuredProductsSkuList: Schema.Attribute.Component<'shared.list', true>;
+    hasExternalRegistration: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<false>;
+    hasOnlineRegistration: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<true>;
+    instructors: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::instructor-team-member.instructor-team-member'
+    >;
+    level: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::calendar-course-event.calendar-course-event'
+    > &
+      Schema.Attribute.Private;
+    materials: Schema.Attribute.Component<'shared.list', true>;
+    ourLine: Schema.Attribute.Component<'shared.list', true>;
+    prerequisites: Schema.Attribute.Component<'shared.list', true>;
+    previewImage: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    price: Schema.Attribute.Decimal &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<0>;
+    publishedAt: Schema.Attribute.DateTime;
+    registeredSeats: Schema.Attribute.Integer;
+    registrationEndDate: Schema.Attribute.Date & Schema.Attribute.Required;
+    role: Schema.Attribute.JSON &
+      Schema.Attribute.Required &
+      Schema.Attribute.CustomField<
+        'plugin::multi-select.multi-select',
+        ['Pro', 'Retail', 'School', 'Web']
+      > &
+      Schema.Attribute.DefaultTo<'[]'>;
+    skinTypes: Schema.Attribute.Component<'shared.list', true>;
+    tabType: Schema.Attribute.Enumeration<
+      ['HAE Events', 'Four Day Events', 'In-Person Classes', 'Virtual Classes']
+    > &
+      Schema.Attribute.Required;
+    title: Schema.Attribute.Component<'shared.text-with-color', false> &
+      Schema.Attribute.Required;
+    totalSeats: Schema.Attribute.Integer & Schema.Attribute.Required;
+    tradeShowCourse: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
+    type: Schema.Attribute.Enumeration<
+      ['course', 'hae', 'multiday', 'In-Person', 'Virtual']
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiCalendarPageCalendarPage extends Struct.SingleTypeSchema {
+  collectionName: 'calendar_pages';
+  info: {
+    displayName: 'CalendarPage';
+    pluralName: 'calendar-pages';
+    singularName: 'calendar-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    banner: Schema.Attribute.Relation<'oneToOne', 'api::banner.banner'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    fourDayEventsDescription: Schema.Attribute.Component<
+      'shared.text-with-color',
+      false
+    >;
+    guestUserMessageSubtitle: Schema.Attribute.Component<
+      'shared.text-with-color',
+      false
+    > &
+      Schema.Attribute.Required;
+    guestUserMessageTitle: Schema.Attribute.Component<
+      'shared.text-with-color',
+      false
+    > &
+      Schema.Attribute.Required;
+    haeEventsDescription: Schema.Attribute.Component<
+      'shared.text-with-color',
+      false
+    >;
+    inPersonClassesDescription: Schema.Attribute.Component<
+      'shared.text-with-color',
+      false
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::calendar-page.calendar-page'
+    > &
+      Schema.Attribute.Private;
+    pageType: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    publishedAt: Schema.Attribute.DateTime;
+    subTitle: Schema.Attribute.Component<'shared.text-with-color', false>;
+    title: Schema.Attribute.Component<'shared.text-with-color', false> &
+      Schema.Attribute.Required;
+    tradeShowsDescription: Schema.Attribute.Component<
+      'shared.text-with-color',
+      false
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    virtualClassesDescription: Schema.Attribute.Component<
+      'shared.text-with-color',
+      false
+    >;
+  };
+}
+
+export interface ApiCalendarTradeShowCalendarTradeShow
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'calendar_trade_shows';
+  info: {
+    displayName: 'Calendar Trade Show';
+    pluralName: 'calendar-trade-shows';
+    singularName: 'calendar-trade-show';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    active: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<true>;
+    courses: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::calendar-course-event.calendar-course-event'
+    >;
+    coursesOfferedDescription: Schema.Attribute.Component<
+      'shared.text-with-color',
+      false
+    >;
+    coursesOfferedTitle: Schema.Attribute.Component<
+      'shared.text-with-color',
+      false
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Component<'shared.text-with-color', false> &
+      Schema.Attribute.Required;
+    event_location: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::event-location.event-location'
+    >;
+    eventEndDate: Schema.Attribute.DateTime & Schema.Attribute.Required;
+    eventStartDate: Schema.Attribute.DateTime & Schema.Attribute.Required;
+    eventTimeZone: Schema.Attribute.String;
+    eventURL: Schema.Attribute.String;
+    instructors: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::instructor-team-member.instructor-team-member'
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::calendar-trade-show.calendar-trade-show'
+    > &
+      Schema.Attribute.Private;
+    previewImage: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    tags: Schema.Attribute.Component<'shared.list', true>;
+    title: Schema.Attribute.Component<'shared.text-with-color', false> &
+      Schema.Attribute.Required;
+    tradeShowId: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    zoomId: Schema.Attribute.String;
+  };
+}
+
 export interface ApiEducationOverviewEducationOverview
   extends Struct.CollectionTypeSchema {
   collectionName: 'education_overviews';
@@ -941,6 +1168,54 @@ export interface ApiEducationTopicEducationTopic
   };
 }
 
+export interface ApiEventLocationEventLocation
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'event_locations';
+  info: {
+    displayName: 'Event Location';
+    pluralName: 'event-locations';
+    singularName: 'event-location';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    address: Schema.Attribute.Text;
+    address2: Schema.Attribute.Text;
+    booth: Schema.Attribute.String;
+    calendar_course_event: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::calendar-course-event.calendar-course-event'
+    >;
+    calendar_trade_show: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::calendar-trade-show.calendar-trade-show'
+    >;
+    city: Schema.Attribute.String;
+    country: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::event-location.event-location'
+    > &
+      Schema.Attribute.Private;
+    mode: Schema.Attribute.Enumeration<['Online', 'Offline']> &
+      Schema.Attribute.Required;
+    phone: Schema.Attribute.String;
+    platform: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    state: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    venue: Schema.Attribute.String;
+    zipCode: Schema.Attribute.String;
+  };
+}
+
 export interface ApiFeaturePageFeaturePage extends Struct.CollectionTypeSchema {
   collectionName: 'feature_pages';
   info: {
@@ -1130,6 +1405,14 @@ export interface ApiInstructorTeamMemberInstructorTeamMember
   attributes: {
     bio: Schema.Attribute.Component<'shared.text-with-color', false> &
       Schema.Attribute.Required;
+    calendar_course_events: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::calendar-course-event.calendar-course-event'
+    >;
+    calendar_trade_shows: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::calendar-trade-show.calendar-trade-show'
+    >;
     cardTitle: Schema.Attribute.Component<'shared.text-with-color', false>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -2542,6 +2825,9 @@ declare module '@strapi/strapi' {
       'api::banner.banner': ApiBannerBanner;
       'api::blog-page.blog-page': ApiBlogPageBlogPage;
       'api::blog.blog': ApiBlogBlog;
+      'api::calendar-course-event.calendar-course-event': ApiCalendarCourseEventCalendarCourseEvent;
+      'api::calendar-page.calendar-page': ApiCalendarPageCalendarPage;
+      'api::calendar-trade-show.calendar-trade-show': ApiCalendarTradeShowCalendarTradeShow;
       'api::education-overview.education-overview': ApiEducationOverviewEducationOverview;
       'api::education-page.education-page': ApiEducationPageEducationPage;
       'api::education-protocol.education-protocol': ApiEducationProtocolEducationProtocol;
@@ -2549,6 +2835,7 @@ declare module '@strapi/strapi' {
       'api::education-resource.education-resource': ApiEducationResourceEducationResource;
       'api::education-sample.education-sample': ApiEducationSampleEducationSample;
       'api::education-topic.education-topic': ApiEducationTopicEducationTopic;
+      'api::event-location.event-location': ApiEventLocationEventLocation;
       'api::feature-page.feature-page': ApiFeaturePageFeaturePage;
       'api::home.home': ApiHomeHome;
       'api::instructor-team-member.instructor-team-member': ApiInstructorTeamMemberInstructorTeamMember;

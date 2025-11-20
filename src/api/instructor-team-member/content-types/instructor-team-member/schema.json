@@ -88,6 +88,18 @@
       "type": "component",
       "component": "shared.list",
       "repeatable": true
+    },
+    "calendar_course_events": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::calendar-course-event.calendar-course-event",
+      "mappedBy": "instructors"
+    },
+    "calendar_trade_shows": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::calendar-trade-show.calendar-trade-show",
+      "mappedBy": "instructors"
     }
   }
 }

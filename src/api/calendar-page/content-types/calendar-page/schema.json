@@ -1,0 +1,73 @@
+{
+  "kind": "singleType",
+  "collectionName": "calendar_pages",
+  "info": {
+    "singularName": "calendar-page",
+    "pluralName": "calendar-pages",
+    "displayName": "CalendarPage"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "pageType": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "banner": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::banner.banner"
+    },
+    "title": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false,
+      "required": true
+    },
+    "subTitle": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false
+    },
+    "guestUserMessageTitle": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false,
+      "required": true
+    },
+    "guestUserMessageSubtitle": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false,
+      "required": true
+    },
+    "haeEventsDescription": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false
+    },
+    "fourDayEventsDescription": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false
+    },
+    "inPersonClassesDescription": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false
+    },
+    "tradeShowsDescription": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false
+    },
+    "virtualClassesDescription": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false
+    }
+  }
+}

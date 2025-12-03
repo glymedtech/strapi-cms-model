@@ -853,6 +853,61 @@ export interface ApiCalendarTradeShowCalendarTradeShow
   };
 }
 
+export interface ApiDaysOfGlymedDaysOfGlymed
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'days_of_glymeds';
+  info: {
+    displayName: 'Days of Glymed';
+    pluralName: 'days-of-glymeds';
+    singularName: 'days-of-glymed';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    banner: Schema.Attribute.Relation<'oneToOne', 'api::banner.banner'>;
+    countdownSectionDealsEndedTitle: Schema.Attribute.Component<
+      'shared.text-with-color',
+      false
+    >;
+    countdownSectionDealsEndingTitle: Schema.Attribute.Component<
+      'shared.text-with-color',
+      false
+    > &
+      Schema.Attribute.Required;
+    countdownSectionTitle: Schema.Attribute.Component<
+      'shared.text-with-color',
+      false
+    > &
+      Schema.Attribute.Required;
+    countdownTimerInstruction: Schema.Attribute.Component<
+      'shared.text-with-color',
+      false
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    endDate: Schema.Attribute.DateTime & Schema.Attribute.Required;
+    featured_products: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::featured-product.featured-product'
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::days-of-glymed.days-of-glymed'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    role: Schema.Attribute.Enumeration<['web', 'pro', 'retial']> &
+      Schema.Attribute.Required;
+    startDate: Schema.Attribute.DateTime & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiEducationOverviewEducationOverview
   extends Struct.CollectionTypeSchema {
   collectionName: 'education_overviews';
@@ -1275,6 +1330,43 @@ export interface ApiFeaturePageFeaturePage extends Struct.CollectionTypeSchema {
     video: Schema.Attribute.Media<'files' | 'videos'>;
     videoPoster: Schema.Attribute.Media<'images' | 'files'>;
     videoTitle: Schema.Attribute.Component<'shared.text-with-color', false>;
+  };
+}
+
+export interface ApiFeaturedProductFeaturedProduct
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'featured_products';
+  info: {
+    displayName: 'FeaturedProduct';
+    pluralName: 'featured-products';
+    singularName: 'featured-product';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    discount: Schema.Attribute.String;
+    endDate: Schema.Attribute.DateTime & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::featured-product.featured-product'
+    > &
+      Schema.Attribute.Private;
+    promotionThumbnail: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    sku: Schema.Attribute.String;
+    startDate: Schema.Attribute.DateTime & Schema.Attribute.Required;
+    type: Schema.Attribute.Enumeration<['Product Discount', 'Free Shipping']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Product Discount'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
   };
 }
 
@@ -2828,6 +2920,7 @@ declare module '@strapi/strapi' {
       'api::calendar-course-event.calendar-course-event': ApiCalendarCourseEventCalendarCourseEvent;
       'api::calendar-page.calendar-page': ApiCalendarPageCalendarPage;
       'api::calendar-trade-show.calendar-trade-show': ApiCalendarTradeShowCalendarTradeShow;
+      'api::days-of-glymed.days-of-glymed': ApiDaysOfGlymedDaysOfGlymed;
       'api::education-overview.education-overview': ApiEducationOverviewEducationOverview;
       'api::education-page.education-page': ApiEducationPageEducationPage;
       'api::education-protocol.education-protocol': ApiEducationProtocolEducationProtocol;
@@ -2837,6 +2930,7 @@ declare module '@strapi/strapi' {
       'api::education-topic.education-topic': ApiEducationTopicEducationTopic;
       'api::event-location.event-location': ApiEventLocationEventLocation;
       'api::feature-page.feature-page': ApiFeaturePageFeaturePage;
+      'api::featured-product.featured-product': ApiFeaturedProductFeaturedProduct;
       'api::home.home': ApiHomeHome;
       'api::instructor-team-member.instructor-team-member': ApiInstructorTeamMemberInstructorTeamMember;
       'api::product-menu.product-menu': ApiProductMenuProductMenu;

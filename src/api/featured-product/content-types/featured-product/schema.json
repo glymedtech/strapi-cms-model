@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "featured_products",
+  "info": {
+    "singularName": "featured-product",
+    "pluralName": "featured-products",
+    "displayName": "FeaturedProduct"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "type": {
+      "type": "enumeration",
+      "required": true,
+      "default": "Product Discount",
+      "enum": [
+        "Product Discount",
+        "Free Shipping"
+      ]
+    },
+    "sku": {
+      "type": "string"
+    },
+    "discount": {
+      "type": "string"
+    },
+    "startDate": {
+      "type": "datetime",
+      "required": true
+    },
+    "endDate": {
+      "type": "datetime",
+      "required": true
+    },
+    "promotionThumbnail": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}

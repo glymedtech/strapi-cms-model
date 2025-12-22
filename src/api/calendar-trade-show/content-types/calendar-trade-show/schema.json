@@ -1,0 +1,96 @@
+{
+  "kind": "collectionType",
+  "collectionName": "calendar_trade_shows",
+  "info": {
+    "singularName": "calendar-trade-show",
+    "pluralName": "calendar-trade-shows",
+    "displayName": "Calendar Trade Show"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "tradeShowId": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "active": {
+      "type": "boolean",
+      "required": true,
+      "default": true
+    },
+    "title": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false,
+      "required": true
+    },
+    "description": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false,
+      "required": true
+    },
+    "previewImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "eventStartDate": {
+      "type": "datetime",
+      "required": true
+    },
+    "eventEndDate": {
+      "type": "datetime",
+      "required": true
+    },
+    "eventTimeZone": {
+      "type": "string",
+      "required": false
+    },
+    "eventURL": {
+      "type": "string"
+    },
+    "instructors": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::instructor-team-member.instructor-team-member",
+      "inversedBy": "calendar_trade_shows"
+    },
+    "event_location": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::event-location.event-location",
+      "inversedBy": "calendar_trade_show"
+    },
+    "tags": {
+      "type": "component",
+      "component": "shared.list",
+      "repeatable": true
+    },
+    "zoomId": {
+      "type": "string"
+    },
+    "coursesOfferedTitle": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false
+    },
+    "coursesOfferedDescription": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false
+    },
+    "courses": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::calendar-course-event.calendar-course-event",
+      "inversedBy": "calendar_trade_shows"
+    }
+  }
+}

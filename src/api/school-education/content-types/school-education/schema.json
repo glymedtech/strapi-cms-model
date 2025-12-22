@@ -1,0 +1,33 @@
+{
+  "kind": "singleType",
+  "collectionName": "school_educations",
+  "info": {
+    "singularName": "school-education",
+    "pluralName": "school-educations",
+    "displayName": "SchoolEducation"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "banner": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::banner.banner"
+    },
+    "educationDetail": {
+      "type": "blocks",
+      "required": true
+    },
+    "education_topics": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::education-topic.education-topic"
+    }
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "kind": "collectionType",
+  "collectionName": "education_resources",
+  "info": {
+    "singularName": "education-resource",
+    "pluralName": "education-resources",
+    "displayName": "EducationResource"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "topicId": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "resourceTitle": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false
+    },
+    "webinarTitle": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false
+    },
+    "infographicTitle": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false
+    },
+    "blogs": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::blog.blog",
+      "inversedBy": "education_resources"
+    },
+    "webinars": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::webinar.webinar",
+      "inversedBy": "education_resources"
+    },
+    "infographics": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}

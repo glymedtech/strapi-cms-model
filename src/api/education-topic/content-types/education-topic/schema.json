@@ -1,0 +1,64 @@
+{
+  "kind": "collectionType",
+  "collectionName": "education_topics",
+  "info": {
+    "singularName": "education-topic",
+    "pluralName": "education-topics",
+    "displayName": "EducationTopic"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "heroImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "topicId": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "imageThumbnail": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "shortDescription": {
+      "type": "text",
+      "required": true
+    },
+    "overview": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::education-overview.education-overview"
+    },
+    "education_protocol": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::education-protocol.education-protocol"
+    },
+    "education_regimen": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::education-regimen.education-regimen"
+    },
+    "education_resource": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::education-resource.education-resource"
+    }
+  }
+}

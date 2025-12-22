@@ -1,0 +1,67 @@
+{
+  "kind": "collectionType",
+  "collectionName": "education_samples",
+  "info": {
+    "singularName": "education-sample",
+    "pluralName": "education-samples",
+    "displayName": "EducationSample"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "educationId": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "metaTag": {
+      "type": "component",
+      "component": "shared.meta-tag",
+      "repeatable": false
+    },
+    "name": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false,
+      "required": true
+    },
+    "shortName": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false,
+      "required": true
+    },
+    "previewImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "infographicImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "description": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false,
+      "required": true
+    },
+    "level": {
+      "type": "string",
+      "required": true
+    },
+    "subSections": {
+      "type": "component",
+      "component": "shared.article-with-plain-title",
+      "repeatable": true
+    }
+  }
+}

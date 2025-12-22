@@ -1,0 +1,38 @@
+{
+  "kind": "singleType",
+  "collectionName": "product_pages",
+  "info": {
+    "singularName": "product-page",
+    "pluralName": "product-pages",
+    "displayName": "ProductPage"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "banner": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::banner.banner"
+    },
+    "productRubricPdf": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "product_menus": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product-menu.product-menu"
+    }
+  }
+}

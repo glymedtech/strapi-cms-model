@@ -1,0 +1,68 @@
+{
+  "kind": "singleType",
+  "collectionName": "resource_pages",
+  "info": {
+    "singularName": "resource-page",
+    "pluralName": "resource-pages",
+    "displayName": "Resource Page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "banner": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::banner.banner"
+    },
+    "title": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "guestUserMessageTitle": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "shared.text-with-color",
+      "repeatable": false,
+      "required": true
+    },
+    "guestUserMessageSubtitle": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "shared.text-with-color",
+      "repeatable": false,
+      "required": true
+    },
+    "resource_sections": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::resource-section.resource-section"
+    }
+  }
+}

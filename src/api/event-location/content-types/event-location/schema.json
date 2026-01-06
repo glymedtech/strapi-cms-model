@@ -56,15 +56,15 @@
     },
     "calendar_course_events": {
       "type": "relation",
-      "relation": "manyToMany",
+      "relation": "oneToMany",
       "target": "api::calendar-course-event.calendar-course-event",
-      "mappedBy": "event_locations"
+      "mappedBy": "event_location"
     },
     "calendar_trade_shows": {
       "type": "relation",
-      "relation": "manyToMany",
+      "relation": "oneToMany",
       "target": "api::calendar-trade-show.calendar-trade-show",
-      "mappedBy": "event_locations"
+      "mappedBy": "event_location"
     }
   }
 }

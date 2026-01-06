@@ -145,9 +145,9 @@
       "required": false,
       "default": false
     },
-    "event_locations": {
+    "event_location": {
       "type": "relation",
-      "relation": "manyToMany",
+      "relation": "manyToOne",
       "target": "api::event-location.event-location",
       "inversedBy": "calendar_course_events"
     },

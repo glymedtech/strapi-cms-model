@@ -73,6 +73,10 @@
       "type": "string",
       "required": false
     },
+    "timeZone": {
+      "type": "customField",
+      "customField": "global::timezone"
+    },
     "registrationEndDate": {
       "type": "date",
       "required": true

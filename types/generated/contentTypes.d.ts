@@ -767,6 +767,8 @@ export interface ApiCalendarCourseEventCalendarCourseEvent
       ['HAE Events', 'Four Day Events', 'In-Person Classes', 'Virtual Classes']
     > &
       Schema.Attribute.Required;
+    timeZone: Schema.Attribute.Text &
+      Schema.Attribute.CustomField<'global::timezone'>;
     title: Schema.Attribute.Component<'shared.text-with-color', false> &
       Schema.Attribute.Required;
     totalSeats: Schema.Attribute.Integer & Schema.Attribute.Required;
@@ -1314,6 +1316,9 @@ export interface ApiEventLocationEventLocation
       'api::event-location.event-location'
     > &
       Schema.Attribute.Private;
+    locationId: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
     mode: Schema.Attribute.Enumeration<['Online', 'Offline']> &
       Schema.Attribute.Required;
     phone: Schema.Attribute.String;

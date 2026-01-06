@@ -11,6 +11,11 @@
   },
   "pluginOptions": {},
   "attributes": {
+    "locationId": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
     "mode": {
       "type": "enumeration",
       "required": true,

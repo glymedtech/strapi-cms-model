@@ -62,11 +62,11 @@
       "target": "api::instructor-team-member.instructor-team-member",
       "inversedBy": "calendar_trade_shows"
     },
-    "event_location": {
+    "event_locations": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "manyToMany",
       "target": "api::event-location.event-location",
-      "inversedBy": "calendar_trade_show"
+      "inversedBy": "calendar_trade_shows"
     },
     "tags": {
       "type": "component",

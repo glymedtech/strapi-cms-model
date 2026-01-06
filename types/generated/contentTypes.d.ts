@@ -717,8 +717,8 @@ export interface ApiCalendarCourseEventCalendarCourseEvent
       Schema.Attribute.Required;
     duration: Schema.Attribute.Integer & Schema.Attribute.Required;
     educationCategories: Schema.Attribute.Component<'shared.list', true>;
-    event_locations: Schema.Attribute.Relation<
-      'manyToMany',
+    event_location: Schema.Attribute.Relation<
+      'manyToOne',
       'api::event-location.event-location'
     >;
     eventEndDate: Schema.Attribute.DateTime & Schema.Attribute.Required;
@@ -879,8 +879,8 @@ export interface ApiCalendarTradeShowCalendarTradeShow
       Schema.Attribute.Private;
     description: Schema.Attribute.Component<'shared.text-with-color', false> &
       Schema.Attribute.Required;
-    event_locations: Schema.Attribute.Relation<
-      'manyToMany',
+    event_location: Schema.Attribute.Relation<
+      'manyToOne',
       'api::event-location.event-location'
     >;
     eventEndDate: Schema.Attribute.DateTime & Schema.Attribute.Required;
@@ -1298,11 +1298,11 @@ export interface ApiEventLocationEventLocation
     address2: Schema.Attribute.Text;
     booth: Schema.Attribute.String;
     calendar_course_events: Schema.Attribute.Relation<
-      'manyToMany',
+      'oneToMany',
       'api::calendar-course-event.calendar-course-event'
     >;
     calendar_trade_shows: Schema.Attribute.Relation<
-      'manyToMany',
+      'oneToMany',
       'api::calendar-trade-show.calendar-trade-show'
     >;
     city: Schema.Attribute.String;

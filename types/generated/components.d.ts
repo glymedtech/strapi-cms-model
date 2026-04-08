@@ -25,6 +25,7 @@ export interface SharedArticleWithPlainTitle extends Struct.ComponentSchema {
   attributes: {
     description: Schema.Attribute.Component<'shared.text-with-color', false>;
     image: Schema.Attribute.Media<'images'>;
+    photo: Schema.Attribute.Media<'images'>;
     title: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;

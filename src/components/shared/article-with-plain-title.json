@@ -11,6 +11,13 @@
       "required": true,
       "unique": true
     },
+    "photo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
     "description": {
       "type": "component",
       "component": "shared.text-with-color",

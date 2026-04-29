@@ -1673,6 +1673,10 @@ export interface ApiProductPageProductPage extends Struct.SingleTypeSchema {
       'oneToOne',
       'api::banner.banner'
     >;
+    saleBannerForWeb: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::banner.banner'
+    >;
     title: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;

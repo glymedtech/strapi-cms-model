@@ -1661,6 +1661,22 @@ export interface ApiProductPageProductPage extends Struct.SingleTypeSchema {
     >;
     productRubricPdf: Schema.Attribute.Media<'images' | 'files'>;
     publishedAt: Schema.Attribute.DateTime;
+    saleBannerForPro: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::banner.banner'
+    >;
+    saleBannerForRetail: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::banner.banner'
+    >;
+    saleBannerForSchool: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::banner.banner'
+    >;
+    saleBannerForWeb: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::banner.banner'
+    >;
     title: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;

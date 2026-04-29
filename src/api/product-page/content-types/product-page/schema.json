@@ -21,11 +21,6 @@
       "relation": "oneToOne",
       "target": "api::banner.banner"
     },
-    "saleBanner": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::banner.banner"
-    },
     "productRubricPdf": {
       "type": "media",
       "multiple": false,
@@ -38,6 +33,21 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::product-menu.product-menu"
+    },
+    "saleBannerForPro": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::banner.banner"
+    },
+    "saleBannerForRetail": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::banner.banner"
+    },
+    "saleBannerForSchool": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::banner.banner"
     }
   }
 }

@@ -77,6 +77,18 @@ export interface SharedBanner extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedFaq extends Struct.ComponentSchema {
+  collectionName: 'components_shared_faqs';
+  info: {
+    displayName: 'Faq';
+    icon: 'bulletList';
+  };
+  attributes: {
+    answer: Schema.Attribute.Text & Schema.Attribute.Required;
+    question: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface SharedList extends Struct.ComponentSchema {
   collectionName: 'components_shared_lists';
   info: {
@@ -185,6 +197,7 @@ declare module '@strapi/strapi' {
       'shared.article': SharedArticle;
       'shared.article-with-plain-title': SharedArticleWithPlainTitle;
       'shared.banner': SharedBanner;
+      'shared.faq': SharedFaq;
       'shared.list': SharedList;
       'shared.meta-tag': SharedMetaTag;
       'shared.product-card': SharedProductCard;

@@ -25,6 +25,15 @@
       "required": true,
       "unique": true
     },
+    "onlyForBronzeTierAndUp": {
+      "type": "boolean",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "default": false
+    },
     "title": {
       "type": "component",
       "pluginOptions": {

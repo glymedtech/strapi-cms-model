@@ -1212,6 +1212,7 @@ export interface ApiEducationSampleEducationSample
     educationId: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
+    faqs: Schema.Attribute.Component<'shared.faq', true>;
     infographicImage: Schema.Attribute.Media<'images'>;
     level: Schema.Attribute.String & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;

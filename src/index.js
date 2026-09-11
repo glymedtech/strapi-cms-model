@@ -1,5 +1,4 @@
 'use strict';
-const bootstrap = require("./bootstrap");
 
 module.exports = {
   /**
@@ -16,6 +15,11 @@ module.exports = {
    *
    * This gives you an opportunity to set up your data model,
    * run jobs, or perform some special logic.
+   *
+   * Note: the starter-template seeder in ./bootstrap.js is intentionally not
+   * wired up here — it targets content types (article, category, author,
+   * global, about) that do not exist in this project. Run it on demand via
+   * `yarn seed:example` if ever needed.
    */
-  bootstrap,
+  bootstrap(/*{ strapi }*/) {},
 };

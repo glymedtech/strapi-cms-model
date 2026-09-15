@@ -562,6 +562,13 @@ export interface ApiBannerBanner extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
+    onlyForBronzeTierAndUp: Schema.Attribute.Boolean &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Schema.Attribute.DefaultTo<false>;
     pageType: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique &

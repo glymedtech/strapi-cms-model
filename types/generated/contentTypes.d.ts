@@ -1453,6 +1453,81 @@ export interface ApiFeaturedProductFeaturedProduct
   };
 }
 
+export interface ApiHomePageHomePage extends Struct.CollectionTypeSchema {
+  collectionName: 'home_pages';
+  info: {
+    displayName: 'HomePage';
+    pluralName: 'home-pages';
+    singularName: 'home-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    aiChat: Schema.Attribute.Component<'shared.ai-chat', false>;
+    banners: Schema.Attribute.Relation<'manyToMany', 'api::banner.banner'>;
+    concernsList: Schema.Attribute.Component<'shared.list', true> &
+      Schema.Attribute.Required;
+    concernsTitle: Schema.Attribute.Component<'shared.text-with-color', false> &
+      Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    fourStepSystemDescription: Schema.Attribute.Component<
+      'shared.text-with-color',
+      false
+    >;
+    fourStepSystemLabel: Schema.Attribute.String;
+    fourStepSystemSteps: Schema.Attribute.Component<
+      'shared.four-step-system-step',
+      true
+    >;
+    fourStepSystemTitle: Schema.Attribute.Component<
+      'shared.text-with-color',
+      false
+    >;
+    hero: Schema.Attribute.Component<'shared.hero-video', false> &
+      Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::home-page.home-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    results: Schema.Attribute.Component<'shared.proven-result', true>;
+    resultsTitle: Schema.Attribute.Component<'shared.text-with-color', false>;
+    role: Schema.Attribute.Enumeration<['pro', 'retail', 'school', 'web']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'web'>;
+    routineProductSKUList: Schema.Attribute.Component<'shared.list', true>;
+    routineProductsTitle: Schema.Attribute.String;
+    skinProfileButtonLink: Schema.Attribute.String;
+    skinProfileButtonText: Schema.Attribute.String;
+    skinProfileDescription: Schema.Attribute.Component<
+      'shared.text-with-color',
+      false
+    >;
+    skinProfileImages: Schema.Attribute.Media<'images', true>;
+    skinProfileTitle: Schema.Attribute.Component<
+      'shared.text-with-color',
+      false
+    >;
+    testimonials: Schema.Attribute.Component<'shared.testimonial', true> &
+      Schema.Attribute.Required;
+    testimonialTitle: Schema.Attribute.Component<
+      'shared.text-with-color',
+      false
+    > &
+      Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    whyChooseItems: Schema.Attribute.Component<'shared.feature-item', true>;
+    whyChooseTitle: Schema.Attribute.Component<'shared.text-with-color', false>;
+  };
+}
+
 export interface ApiHomeHome extends Struct.CollectionTypeSchema {
   collectionName: 'homes';
   info: {
@@ -3032,6 +3107,7 @@ declare module '@strapi/strapi' {
       'api::event-location.event-location': ApiEventLocationEventLocation;
       'api::feature-page.feature-page': ApiFeaturePageFeaturePage;
       'api::featured-product.featured-product': ApiFeaturedProductFeaturedProduct;
+      'api::home-page.home-page': ApiHomePageHomePage;
       'api::home.home': ApiHomeHome;
       'api::instructor-team-member.instructor-team-member': ApiInstructorTeamMemberInstructorTeamMember;
       'api::product-menu.product-menu': ApiProductMenuProductMenu;

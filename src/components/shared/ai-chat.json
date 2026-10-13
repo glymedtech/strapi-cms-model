@@ -1,0 +1,37 @@
+{
+  "collectionName": "components_shared_ai_chats",
+  "info": {
+    "displayName": "AiChat"
+  },
+  "options": {},
+  "attributes": {
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "title": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false
+    },
+    "greeting": {
+      "type": "text"
+    },
+    "suggestions": {
+      "type": "component",
+      "component": "shared.list",
+      "repeatable": true
+    },
+    "inputPlaceholder": {
+      "type": "string"
+    },
+    "disclaimer": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,136 @@
+{
+  "kind": "collectionType",
+  "collectionName": "home_pages",
+  "info": {
+    "singularName": "home-page",
+    "pluralName": "home-pages",
+    "displayName": "HomePage"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "role": {
+      "type": "enumeration",
+      "required": true,
+      "default": "web",
+      "enum": [
+        "pro",
+        "retail",
+        "school",
+        "web"
+      ]
+    },
+    "hero": {
+      "type": "component",
+      "component": "shared.hero-video",
+      "repeatable": false,
+      "required": true
+    },
+    "banners": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::banner.banner"
+    },
+    "aiChat": {
+      "type": "component",
+      "component": "shared.ai-chat",
+      "repeatable": false
+    },
+    "skinProfileTitle": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false
+    },
+    "skinProfileDescription": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false
+    },
+    "skinProfileImages": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "skinProfileButtonText": {
+      "type": "string"
+    },
+    "skinProfileButtonLink": {
+      "type": "string"
+    },
+    "fourStepSystemLabel": {
+      "type": "string"
+    },
+    "fourStepSystemTitle": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false
+    },
+    "fourStepSystemDescription": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false
+    },
+    "fourStepSystemSteps": {
+      "type": "component",
+      "component": "shared.four-step-system-step",
+      "repeatable": true
+    },
+    "concernsTitle": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false,
+      "required": true
+    },
+    "concernsList": {
+      "type": "component",
+      "component": "shared.list",
+      "repeatable": true,
+      "required": true
+    },
+    "resultsTitle": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false
+    },
+    "results": {
+      "type": "component",
+      "component": "shared.proven-result",
+      "repeatable": true
+    },
+    "routineProductsTitle": {
+      "type": "string"
+    },
+    "routineProductSKUList": {
+      "type": "component",
+      "component": "shared.list",
+      "repeatable": true
+    },
+    "whyChooseTitle": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false
+    },
+    "whyChooseItems": {
+      "type": "component",
+      "component": "shared.feature-item",
+      "repeatable": true
+    },
+    "testimonialTitle": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false,
+      "required": true
+    },
+    "testimonials": {
+      "type": "component",
+      "component": "shared.testimonial",
+      "repeatable": true,
+      "required": true
+    }
+  }
+}

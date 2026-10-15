@@ -28,10 +28,10 @@
       "repeatable": false,
       "required": true
     },
-    "banners": {
+    "promoCarousels": {
       "type": "relation",
       "relation": "manyToMany",
-      "target": "api::banner.banner"
+      "target": "api::carousel.carousel"
     },
     "aiChat": {
       "type": "component",

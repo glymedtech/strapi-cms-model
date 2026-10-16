@@ -126,8 +126,8 @@ export interface SharedFourStepSystemStep extends Struct.ComponentSchema {
     buttonText: Schema.Attribute.String;
     description: Schema.Attribute.Text;
     icon: Schema.Attribute.Media<'images'>;
-    image: Schema.Attribute.Media<'images'>;
     name: Schema.Attribute.String & Schema.Attribute.Required;
+    posterImage: Schema.Attribute.Media<'images'>;
     stepNumber: Schema.Attribute.Integer &
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMax<
@@ -136,6 +136,7 @@ export interface SharedFourStepSystemStep extends Struct.ComponentSchema {
         },
         number
       >;
+    video: Schema.Attribute.Media<'videos'>;
   };
 }
 

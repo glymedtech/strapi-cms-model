@@ -25,12 +25,20 @@
         "images"
       ]
     },
-    "image": {
+    "posterImage": {
       "type": "media",
       "multiple": false,
       "required": false,
       "allowedTypes": [
         "images"
+      ]
+    },
+    "video": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "videos"
       ]
     },
     "buttonText": {

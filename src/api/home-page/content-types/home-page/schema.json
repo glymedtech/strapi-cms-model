@@ -99,16 +99,11 @@
     },
     "results": {
       "type": "component",
-      "component": "shared.proven-result",
+      "component": "shared.before-after-result",
       "repeatable": true
     },
     "routineProductsTitle": {
       "type": "string"
-    },
-    "routineProductSKUList": {
-      "type": "component",
-      "component": "shared.list",
-      "repeatable": true
     },
     "whyChooseTitle": {
       "type": "component",

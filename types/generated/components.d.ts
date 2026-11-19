@@ -92,6 +92,22 @@ export interface SharedBanner extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedBeforeAfterResult extends Struct.ComponentSchema {
+  collectionName: 'components_shared_before_after_results';
+  info: {
+    displayName: 'BeforeAfterResult';
+    icon: 'sun';
+  };
+  attributes: {
+    after: Schema.Attribute.Component<'shared.text-with-color', false> &
+      Schema.Attribute.Required;
+    before: Schema.Attribute.Component<'shared.text-with-color', false> &
+      Schema.Attribute.Required;
+    resultImage: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    routineProductSKUList: Schema.Attribute.Component<'shared.list', true>;
+  };
+}
+
 export interface SharedFaq extends Struct.ComponentSchema {
   collectionName: 'components_shared_faqs';
   info: {
@@ -267,6 +283,7 @@ declare module '@strapi/strapi' {
       'shared.article': SharedArticle;
       'shared.article-with-plain-title': SharedArticleWithPlainTitle;
       'shared.banner': SharedBanner;
+      'shared.before-after-result': SharedBeforeAfterResult;
       'shared.faq': SharedFaq;
       'shared.feature-item': SharedFeatureItem;
       'shared.four-step-system-step': SharedFourStepSystemStep;

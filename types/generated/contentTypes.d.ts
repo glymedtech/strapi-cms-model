@@ -1700,12 +1700,11 @@ export interface ApiHomePageHomePage extends Struct.CollectionTypeSchema {
       'api::carousel.carousel'
     >;
     publishedAt: Schema.Attribute.DateTime;
-    results: Schema.Attribute.Component<'shared.proven-result', true>;
+    results: Schema.Attribute.Component<'shared.before-after-result', true>;
     resultsTitle: Schema.Attribute.Component<'shared.text-with-color', false>;
     role: Schema.Attribute.Enumeration<['pro', 'retail', 'school', 'web']> &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'web'>;
-    routineProductSKUList: Schema.Attribute.Component<'shared.list', true>;
     routineProductsTitle: Schema.Attribute.String;
     skinProfileButtonLink: Schema.Attribute.String;
     skinProfileButtonText: Schema.Attribute.String;

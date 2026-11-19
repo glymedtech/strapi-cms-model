@@ -97,6 +97,14 @@ const HINTS = {
       description:
         'Slides shown in the promo carousel, in this order. Drag to reorder. Create slides under Content Manager › Carousel.',
     },
+    results: {
+      description:
+        'Slides in the "See the Results" carousel, in this order. Each slide has a before/after image and the SKUs of the products used in that routine.',
+    },
+    routineProductsTitle: {
+      description: 'Heading above each slide’s product list.',
+      placeholder: 'Products Used In This Routine',
+    },
   },
 };
 

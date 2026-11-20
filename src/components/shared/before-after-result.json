@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_shared_before_after_results",
+  "info": {
+    "displayName": "BeforeAfterResult",
+    "icon": "sun"
+  },
+  "options": {},
+  "attributes": {
+    "resultImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "before": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false,
+      "required": true
+    },
+    "after": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false,
+      "required": true
+    },
+    "routineProductSKUList": {
+      "type": "component",
+      "component": "shared.list",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

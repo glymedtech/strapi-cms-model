@@ -932,6 +932,208 @@ export interface ApiCalendarTradeShowCalendarTradeShow
   };
 }
 
+export interface ApiCarouselCarousel extends Struct.CollectionTypeSchema {
+  collectionName: 'carousels';
+  info: {
+    displayName: 'Carousel';
+    pluralName: 'carousels';
+    singularName: 'carousel';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    buttonColor: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    buttonColorOnHover: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    buttonLink: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    buttonText: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    buttonTextColor: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    buttonTextColorOnHover: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Component<'shared.text-with-color', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    desktopLayout: Schema.Attribute.Enumeration<['left', 'right', 'none']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Schema.Attribute.DefaultTo<'left'>;
+    endDate: Schema.Attribute.DateTime &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    imageAlt: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    imageDesktop: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    imageMobile: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    isExternalLink: Schema.Attribute.Boolean &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Schema.Attribute.DefaultTo<false>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::carousel.carousel'
+    >;
+    mobileLayout: Schema.Attribute.Enumeration<
+      ['topAndBottom', 'topOnly', 'bottomOnly', 'none']
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Schema.Attribute.DefaultTo<'topAndBottom'>;
+    name: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    onlyForBronzeTierAndUp: Schema.Attribute.Boolean &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Schema.Attribute.DefaultTo<false>;
+    overlayBottomColor: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    overlayOpacity: Schema.Attribute.Integer &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 100;
+          min: 0;
+        },
+        number
+      > &
+      Schema.Attribute.DefaultTo<100>;
+    overlayTopColor: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    startDate: Schema.Attribute.DateTime &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    subtitle: Schema.Attribute.Component<'shared.text-with-color', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    title: Schema.Attribute.Component<'shared.text-with-color', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    titleShadowColor: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    titleStyle: Schema.Attribute.Enumeration<['solid', 'metallic']> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Schema.Attribute.DefaultTo<'solid'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiDaysOfGlymedDaysOfGlymed
   extends Struct.CollectionTypeSchema {
   collectionName: 'days_of_glymeds';
@@ -1450,6 +1652,83 @@ export interface ApiFeaturedProductFeaturedProduct
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+  };
+}
+
+export interface ApiHomePageHomePage extends Struct.CollectionTypeSchema {
+  collectionName: 'home_pages';
+  info: {
+    displayName: 'HomePage';
+    pluralName: 'home-pages';
+    singularName: 'home-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    aiChat: Schema.Attribute.Component<'shared.ai-chat', false>;
+    concernsList: Schema.Attribute.Component<'shared.list', true> &
+      Schema.Attribute.Required;
+    concernsTitle: Schema.Attribute.Component<'shared.text-with-color', false> &
+      Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    fourStepSystemDescription: Schema.Attribute.Component<
+      'shared.text-with-color',
+      false
+    >;
+    fourStepSystemLabel: Schema.Attribute.String;
+    fourStepSystemSteps: Schema.Attribute.Component<
+      'shared.four-step-system-step',
+      true
+    >;
+    fourStepSystemTitle: Schema.Attribute.Component<
+      'shared.text-with-color',
+      false
+    >;
+    hero: Schema.Attribute.Component<'shared.hero-video', false> &
+      Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::home-page.home-page'
+    > &
+      Schema.Attribute.Private;
+    promoCarousels: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::carousel.carousel'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    results: Schema.Attribute.Component<'shared.before-after-result', true>;
+    resultsTitle: Schema.Attribute.Component<'shared.text-with-color', false>;
+    role: Schema.Attribute.Enumeration<['pro', 'retail', 'school', 'web']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'web'>;
+    routineProductsTitle: Schema.Attribute.String;
+    skinProfileButtonLink: Schema.Attribute.String;
+    skinProfileButtonText: Schema.Attribute.String;
+    skinProfileDescription: Schema.Attribute.Component<
+      'shared.text-with-color',
+      false
+    >;
+    skinProfileImages: Schema.Attribute.Media<'images', true>;
+    skinProfileTitle: Schema.Attribute.Component<
+      'shared.text-with-color',
+      false
+    >;
+    testimonials: Schema.Attribute.Component<'shared.testimonial', true> &
+      Schema.Attribute.Required;
+    testimonialTitle: Schema.Attribute.Component<
+      'shared.text-with-color',
+      false
+    > &
+      Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    whyChooseItems: Schema.Attribute.Component<'shared.feature-item', true>;
+    whyChooseTitle: Schema.Attribute.Component<'shared.text-with-color', false>;
   };
 }
 
@@ -3021,6 +3300,7 @@ declare module '@strapi/strapi' {
       'api::calendar-course-event.calendar-course-event': ApiCalendarCourseEventCalendarCourseEvent;
       'api::calendar-page.calendar-page': ApiCalendarPageCalendarPage;
       'api::calendar-trade-show.calendar-trade-show': ApiCalendarTradeShowCalendarTradeShow;
+      'api::carousel.carousel': ApiCarouselCarousel;
       'api::days-of-glymed.days-of-glymed': ApiDaysOfGlymedDaysOfGlymed;
       'api::education-overview.education-overview': ApiEducationOverviewEducationOverview;
       'api::education-page.education-page': ApiEducationPageEducationPage;
@@ -3032,6 +3312,7 @@ declare module '@strapi/strapi' {
       'api::event-location.event-location': ApiEventLocationEventLocation;
       'api::feature-page.feature-page': ApiFeaturePageFeaturePage;
       'api::featured-product.featured-product': ApiFeaturedProductFeaturedProduct;
+      'api::home-page.home-page': ApiHomePageHomePage;
       'api::home.home': ApiHomeHome;
       'api::instructor-team-member.instructor-team-member': ApiInstructorTeamMemberInstructorTeamMember;
       'api::product-menu.product-menu': ApiProductMenuProductMenu;

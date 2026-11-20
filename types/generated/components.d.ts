@@ -1,5 +1,20 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface SharedAiChat extends Struct.ComponentSchema {
+  collectionName: 'components_shared_ai_chats';
+  info: {
+    displayName: 'AiChat';
+  };
+  attributes: {
+    disclaimer: Schema.Attribute.Text;
+    greeting: Schema.Attribute.Text;
+    icon: Schema.Attribute.Media<'images'>;
+    inputPlaceholder: Schema.Attribute.String;
+    suggestions: Schema.Attribute.Component<'shared.list', true>;
+    title: Schema.Attribute.Component<'shared.text-with-color', false>;
+  };
+}
+
 export interface SharedArticle extends Struct.ComponentSchema {
   collectionName: 'components_shared_articles';
   info: {
@@ -77,6 +92,22 @@ export interface SharedBanner extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedBeforeAfterResult extends Struct.ComponentSchema {
+  collectionName: 'components_shared_before_after_results';
+  info: {
+    displayName: 'BeforeAfterResult';
+    icon: 'sun';
+  };
+  attributes: {
+    after: Schema.Attribute.Component<'shared.text-with-color', false> &
+      Schema.Attribute.Required;
+    before: Schema.Attribute.Component<'shared.text-with-color', false> &
+      Schema.Attribute.Required;
+    resultImage: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    routineProductSKUList: Schema.Attribute.Component<'shared.list', true>;
+  };
+}
+
 export interface SharedFaq extends Struct.ComponentSchema {
   collectionName: 'components_shared_faqs';
   info: {
@@ -86,6 +117,60 @@ export interface SharedFaq extends Struct.ComponentSchema {
   attributes: {
     answer: Schema.Attribute.Text & Schema.Attribute.Required;
     question: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface SharedFeatureItem extends Struct.ComponentSchema {
+  collectionName: 'components_shared_feature_items';
+  info: {
+    displayName: 'FeatureItem';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    icon: Schema.Attribute.Media<'images'>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface SharedFourStepSystemStep extends Struct.ComponentSchema {
+  collectionName: 'components_shared_four_step_system_steps';
+  info: {
+    displayName: 'FourStepSystemStep';
+  };
+  attributes: {
+    buttonLink: Schema.Attribute.String;
+    buttonText: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
+    icon: Schema.Attribute.Media<'images'>;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    posterImage: Schema.Attribute.Media<'images'>;
+    stepNumber: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      >;
+    video: Schema.Attribute.Media<'videos'>;
+  };
+}
+
+export interface SharedHeroVideo extends Struct.ComponentSchema {
+  collectionName: 'components_shared_hero_videos';
+  info: {
+    displayName: 'HeroVideo';
+  };
+  attributes: {
+    badgeText: Schema.Attribute.String & Schema.Attribute.Required;
+    heading: Schema.Attribute.String & Schema.Attribute.Required;
+    posterDesktop: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    posterMobile: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    primaryButtonLink: Schema.Attribute.String;
+    primaryButtonText: Schema.Attribute.String;
+    secondaryButtonText: Schema.Attribute.String;
+    videoDesktop: Schema.Attribute.Media<'videos'>;
+    videoMobile: Schema.Attribute.Media<'videos'>;
   };
 }
 
@@ -194,10 +279,15 @@ export interface SharedWhyChooseGlyMedPlus extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export namespace Public {
     export interface ComponentSchemas {
+      'shared.ai-chat': SharedAiChat;
       'shared.article': SharedArticle;
       'shared.article-with-plain-title': SharedArticleWithPlainTitle;
       'shared.banner': SharedBanner;
+      'shared.before-after-result': SharedBeforeAfterResult;
       'shared.faq': SharedFaq;
+      'shared.feature-item': SharedFeatureItem;
+      'shared.four-step-system-step': SharedFourStepSystemStep;
+      'shared.hero-video': SharedHeroVideo;
       'shared.list': SharedList;
       'shared.meta-tag': SharedMetaTag;
       'shared.product-card': SharedProductCard;

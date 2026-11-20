@@ -1,5 +1,7 @@
 'use strict';
 
+const { applyContentManagerHints } = require('./content-manager-hints');
+
 module.exports = {
   /**
    * An asynchronous register function that runs before
@@ -21,5 +23,7 @@ module.exports = {
    * global, about) that do not exist in this project. Run it on demand via
    * `yarn seed:example` if ever needed.
    */
-  bootstrap(/*{ strapi }*/) {},
+  async bootstrap({ strapi }) {
+    await applyContentManagerHints(strapi);
+  },
 };

@@ -23,9 +23,6 @@
     "sku": {
       "type": "string"
     },
-    "discount": {
-      "type": "string"
-    },
     "startDate": {
       "type": "datetime",
       "required": true
@@ -41,6 +38,19 @@
       "allowedTypes": [
         "images"
       ]
+    },
+    "revealedImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
     }
   }
 }

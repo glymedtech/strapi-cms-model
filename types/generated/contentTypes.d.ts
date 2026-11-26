@@ -1168,11 +1168,13 @@ export interface ApiDaysOfGlymedDaysOfGlymed
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    endDate: Schema.Attribute.DateTime & Schema.Attribute.Required;
     featured_products: Schema.Attribute.Relation<
       'oneToMany',
       'api::featured-product.featured-product'
     >;
+    introActive: Schema.Attribute.Component<'shared.text-with-color', false>;
+    introEnded: Schema.Attribute.Component<'shared.text-with-color', false>;
+    introUpcoming: Schema.Attribute.Component<'shared.text-with-color', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -1180,9 +1182,13 @@ export interface ApiDaysOfGlymedDaysOfGlymed
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    role: Schema.Attribute.Enumeration<['web', 'pro', 'retial']> &
+    role: Schema.Attribute.Enumeration<['web', 'pro', 'retail']> &
       Schema.Attribute.Required;
     startDate: Schema.Attribute.DateTime & Schema.Attribute.Required;
+    timerLabelUpcoming: Schema.Attribute.Component<
+      'shared.text-with-color',
+      false
+    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1633,7 +1639,6 @@ export interface ApiFeaturedProductFeaturedProduct
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    discount: Schema.Attribute.String;
     endDate: Schema.Attribute.DateTime & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -1644,8 +1649,11 @@ export interface ApiFeaturedProductFeaturedProduct
     promotionThumbnail: Schema.Attribute.Media<'images'> &
       Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
+    revealedImage: Schema.Attribute.Media<'images'>;
     sku: Schema.Attribute.String;
     startDate: Schema.Attribute.DateTime & Schema.Attribute.Required;
+    subtitle: Schema.Attribute.String;
+    title: Schema.Attribute.String;
     type: Schema.Attribute.Enumeration<['Product Discount', 'Free Shipping']> &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'Product Discount'>;

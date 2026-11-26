@@ -22,14 +22,10 @@
       "enum": [
         "web",
         "pro",
-        "retial"
+        "retail"
       ]
     },
     "startDate": {
-      "type": "datetime",
-      "required": true
-    },
-    "endDate": {
       "type": "datetime",
       "required": true
     },
@@ -51,6 +47,26 @@
       "repeatable": false
     },
     "countdownTimerInstruction": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false
+    },
+    "introUpcoming": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false
+    },
+    "introActive": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false
+    },
+    "introEnded": {
+      "type": "component",
+      "component": "shared.text-with-color",
+      "repeatable": false
+    },
+    "timerLabelUpcoming": {
       "type": "component",
       "component": "shared.text-with-color",
       "repeatable": false

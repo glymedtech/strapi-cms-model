@@ -106,6 +106,47 @@ const HINTS = {
       placeholder: 'Products Used In This Routine',
     },
   },
+  'api::days-of-glymed.days-of-glymed': {
+    role: {
+      description:
+        'Audience: pro, retail, or web (guests who are not logged in). Each needs its own entry.',
+    },
+    startDate: {
+      description:
+        'Start of the event. If several entries share a role, the one with the latest start date is shown. The event ends when its last deal ends.',
+    },
+    introUpcoming: {
+      description: 'Intro shown before day 1 (eyebrow, heading, paragraph).',
+    },
+    introActive: {
+      description: 'Intro shown during days 1–12.',
+    },
+    introEnded: {
+      description: 'Intro shown after the event ends.',
+    },
+    countdownTimerInstruction: {
+      description:
+        'No longer shown on the website (replaced by the three intro fields). Will be removed.',
+    },
+    timerLabelUpcoming: {
+      description:
+        'Label above the timer before day 1, e.g. "Your first deal unlocks in". Leave empty to use Countdown Section Title.',
+    },
+  },
+  'api::featured-product.featured-product': {
+    revealedImage: {
+      description:
+        'Optional. Replaces the catalog product image on the revealed deal card (e.g. a coupon image).',
+    },
+    title: {
+      description: 'Optional. Replaces the product name on the revealed deal card.',
+      placeholder: 'Buy a Atraxi Peptide',
+    },
+    subtitle: {
+      description: 'Optional. Replaces the size line on the revealed deal card.',
+      placeholder: 'Get a Glycolic Facial Cleanser',
+    },
+  },
 };
 
 async function applyContentManagerHints(strapi) {
